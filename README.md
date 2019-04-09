@@ -1,3 +1,2 @@
 # wildQuizApp
-
-test
+React.js webapp
