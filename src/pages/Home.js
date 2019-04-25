@@ -1,4 +1,5 @@
 import React from 'react';
+import Gamebox from '../components/Gamebox';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        Home
+        <Gamebox />
       </div>
     )
   }
