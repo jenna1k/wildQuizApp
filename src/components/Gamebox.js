@@ -11,7 +11,7 @@ const Gamebox = ({ quiz }) => (
                     <CardTitle className="text-white d-flex justify-content-center">Solve quizes from 6 categories!</CardTitle>
                 </CardHeader>
                 <Progress multi>
-                    <Progress bar value="17" />
+                    <Progress bar color="pink" value="17" />
                     <Progress bar color="success" value="17" />
                     <Progress bar color="info" value="17" />
                     <Progress bar color="warning" value="17" />
@@ -20,8 +20,8 @@ const Gamebox = ({ quiz }) => (
                 </Progress>
                 <CardBody className="bg-light">
                 <CardText>
-                    <Button outline color="info" className="m-1 d-inline">{quiz.category}</Button>
-                    <Button outline color="info" className="m-1 d-inline">Difficulty : {quiz.difficulty}</Button>
+                    <Button outline color="info" className="m-1 d-inline" disabled>{quiz.category}</Button>
+                    <Button outline color="info" className="m-1 d-inline" disabled>Difficulty : {quiz.difficulty}</Button>
                 </CardText>
                 <Alert color="info">
                     <h2 className="alert-heading d-flex justify-content-center">
@@ -48,7 +48,7 @@ const Gamebox = ({ quiz }) => (
                 </Card>
                 </CardBody>
                 <CardFooter className="bg-dark">
-                    <Button outline color="success">Score: 90</Button>
+                    <Button outline color="success" disabled>Score: 90</Button>
                 </CardFooter>
             </Col>
         </Row>
