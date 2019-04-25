@@ -1,52 +1,56 @@
 import React from 'react';
 import { Jumbotron, Card, Button, CardTitle, CardText, CardBody, 
-    CardHeader, CardFooter, Row, Col, Alert } from 'reactstrap';
+    CardHeader, CardFooter, Row, Col, Alert, Progress } from 'reactstrap';
 import './Gamebox.css'
 
 class Gamebox extends React.Component {
   render() {
     return (
     <Jumbotron fluid>
-        <Row>
+        <Row className="d-flex justify-content-center">
             <Col sm="6">
-                <CardHeader tag="h3">
-                    <CardTitle>Special Title Treatment</CardTitle>
+                <CardHeader tag="h3" className="bg-dark">
+                    <CardTitle className="text-white d-flex justify-content-center">Solve quizes from 6 categories!</CardTitle>
                 </CardHeader>
-                <CardBody>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <Alert color="success">
-                    <h4 className="alert-heading">Well done!</h4>
-                    <p>
-                    Aww yeah, you successfully read this important alert message. This example text is going
-                    to run a bit longer so that you can see how spacing within an alert works with this kind
-                    of content.
-                    </p>
-                    <hr />
-                    <p className="mb-0">
-                    Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
-                    </p>
+                <Progress multi>
+                    <Progress bar value="17" />
+                    <Progress bar color="success" value="17" />
+                    <Progress bar color="info" value="17" />
+                    <Progress bar color="warning" value="17" />
+                    <Progress bar color="secondary" value="17" />
+                    <Progress bar color="danger" value="17" />
+                </Progress>
+                <CardBody className="bg-light">
+                <CardText>
+                    <Button outline color="info" className="m-1 d-inline">Category : Film</Button>
+                    <Button outline color="info" className="m-1 d-inline">Difficulty : Medium</Button>
+                </CardText>
+                <Alert color="info">
+                    <h2 className="alert-heading d-flex justify-content-center">
+                    What film did James Cameron&#039;s Avatar dethrone as the highest-grossing film ever?
+                    </h2>
                 </Alert>
-                <Card>
+                <Card className="border-0 bg-light">
                     <Row>
                         <Col lg="6" sm="12">
-                        <Button color="primary" size="lg" block>Answer</Button>
+                        <Button className="m-1" color="info" size="lg" block>Titanic</Button>
                         </Col>
                         <Col lg="6" sm="12">
-                        <Button color="primary" size="lg" block>Answer</Button>
+                        <Button className="m-1" color="info" size="lg" block>Star Wars</Button>
                         </Col>
                     </Row>
                     <Row>
                         <Col lg="6" sm="12">
-                        <Button color="primary" size="lg" block>Answer</Button>
+                        <Button className="m-1" color="info" size="lg" block>Gone with the Wind</Button>
                         </Col>
                         <Col lg="6" sm="12">
-                        <Button color="primary" size="lg" block>Answer</Button>
+                        <Button className="m-1" color="info" size="lg" block>Jaws</Button>
                         </Col>
                     </Row>
                 </Card>
                 </CardBody>
-                <CardFooter color="info">
-                    <Button outline color="success">Score: 100</Button>
+                <CardFooter className="bg-dark">
+                    <Button outline color="success">Score: 90</Button>
                 </CardFooter>
             </Col>
         </Row>
