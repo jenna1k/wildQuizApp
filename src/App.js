@@ -7,12 +7,14 @@ import Home from './pages/Home';
 import About from './pages/About';
 import HowToPlay from './pages/HowToPlay';
 import Footer from './components/Footer';
+import Gamebox from './components/Gamebox';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Header />
+        <Gamebox />
         <Route exact path={"/"} component={Home} />
 
         <Route path={"/home"} component={Home} />
