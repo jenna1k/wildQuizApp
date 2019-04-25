@@ -3,9 +3,7 @@ import { Jumbotron, Card, Button, CardTitle, CardText, CardBody,
     CardHeader, CardFooter, Row, Col, Alert, Progress } from 'reactstrap';
 import './Gamebox.css'
 
-class Gamebox extends React.Component {
-  render() {
-    return (
+const Gamebox = ({ quiz }) => (
     <Jumbotron fluid>
         <Row className="d-flex justify-content-center">
             <Col sm="6">
@@ -22,29 +20,29 @@ class Gamebox extends React.Component {
                 </Progress>
                 <CardBody className="bg-light">
                 <CardText>
-                    <Button outline color="info" className="m-1 d-inline">Category : Film</Button>
-                    <Button outline color="info" className="m-1 d-inline">Difficulty : Medium</Button>
+                    <Button outline color="info" className="m-1 d-inline">{quiz.category}</Button>
+                    <Button outline color="info" className="m-1 d-inline">Difficulty : {quiz.difficulty}</Button>
                 </CardText>
                 <Alert color="info">
                     <h2 className="alert-heading d-flex justify-content-center">
-                    What film did James Cameron&#039;s Avatar dethrone as the highest-grossing film ever?
+                    {quiz.question}
                     </h2>
                 </Alert>
                 <Card className="border-0 bg-light">
                     <Row>
                         <Col lg="6" sm="12">
-                        <Button className="m-1" color="info" size="lg" block>Titanic</Button>
+                        <Button className="m-1" color="info" size="lg" block>{quiz.incorrect_answers}</Button>
                         </Col>
                         <Col lg="6" sm="12">
-                        <Button className="m-1" color="info" size="lg" block>Star Wars</Button>
+                        <Button className="m-1" color="info" size="lg" block>{quiz.incorrect_answers}</Button>
                         </Col>
                     </Row>
                     <Row>
                         <Col lg="6" sm="12">
-                        <Button className="m-1" color="info" size="lg" block>Gone with the Wind</Button>
+                        <Button className="m-1" color="info" size="lg" block>{quiz.incorrect_answers}</Button>
                         </Col>
                         <Col lg="6" sm="12">
-                        <Button className="m-1" color="info" size="lg" block>Jaws</Button>
+                        <Button className="m-1" color="info" size="lg" block>{quiz.correct_answer}</Button>
                         </Col>
                     </Row>
                 </Card>
@@ -55,9 +53,7 @@ class Gamebox extends React.Component {
             </Col>
         </Row>
     </Jumbotron>
-    );
-  }
-}
+);
 
 
 export default Gamebox;
