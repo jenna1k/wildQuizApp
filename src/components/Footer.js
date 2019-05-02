@@ -7,7 +7,7 @@ export default class Footer extends React.Component {
       <Container>
         <footer>
           <Row>
-            <Col sm="12" md="12" lg="12">
+            <Col>
               <p className="align-self-center">Wild Code School &copy; 2019</p>
             </Col>
           </Row>
