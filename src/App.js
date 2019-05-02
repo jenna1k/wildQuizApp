@@ -8,7 +8,6 @@ import About from './pages/About';
 import HowToPlay from './pages/HowToPlay';
 import Footer from './components/Footer';
 
-
 class App extends Component {
   render() {
     return (
