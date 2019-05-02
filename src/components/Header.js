@@ -1,6 +1,7 @@
 import React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from 'reactstrap';
-import { NavLink, Link } from 'react-router-dom';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { NavLink as RouterLink } from 'react-router-dom';
+import './Header.css';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -11,27 +12,40 @@ export default class Header extends React.Component {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md" className="navbar-dark bg-dark">
-          <NavbarBrand href="/">Wild Quiz</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+        <Navbar expand="md" className="navbar-dark">
+          <NavbarBrand href="/">
+            <img src="https://content.screencast.com/users/aliashkevich/folders/wild_quiz/media/47c98acf-8936-4057-b0a6-93a5ed670f92/logo.png"
+              alt="logo"
+              className="logo" />
+            <span>Wild Quiz</span>
+          </NavbarBrand>
+          <NavbarToggler className="custom-toggler" onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavLink>
-                <Link to="/home">Home</Link>
+                <NavItem>
+                  <RouterLink exact to="/home">Home</RouterLink>
+                </NavItem>
               </NavLink>
               <NavLink>
-                <Link to="/about">About</Link>
+                <NavItem>
+                  <RouterLink to="/how_to_play">How to play</RouterLink>
+                </NavItem>
               </NavLink>
               <NavLink>
-                <Link to="/how_to_play">How to play</Link>
+                <NavItem>
+                  <RouterLink to="/about">About</RouterLink>
+                </NavItem>
               </NavLink>
             </Nav>
           </Collapse>
