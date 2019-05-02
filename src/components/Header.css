@@ -1,0 +1,57 @@
+.logo {
+  width: 60px;
+  height: 50px;
+}
+
+.navbar-brand span {
+  vertical-align: middle;
+  color: #1fdab1 !important;
+  font-size: 28px !important;
+  text-shadow: 1px 2px #1f47da;
+}
+
+.navbar-brand img {
+  padding-right: 12px;
+}
+
+.navbar {
+  padding: 2px 12px !important;
+  background-color: #671fda;
+  font-size: 28px;
+  font-family: 'Quicksand', 'Jura', sans-serif;
+}
+
+.navbar a {
+  color: #1fdab1;
+  font-size: 28px;
+  text-shadow: 1px 2px #1f47da;
+}
+
+.navbar a.active {
+  color: #ffffff;
+  font-size: 28px;
+  font-family: 'Quicksand', 'Jura', sans-serif;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+  font-size: 28px;
+  text-decoration: none;
+}
+  
+/* remove the blue outline when active or focused */
+.navbar-toggler:active, .navbar-toggler:focus {
+  outline: 0;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: transparent !important;
+}
+
+.custom-toggler .navbar-toggler-icon {
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(31,218,177)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+.ml.navbar-nav{
+  text-align: right;
+}
