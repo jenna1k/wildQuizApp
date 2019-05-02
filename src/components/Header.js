@@ -43,13 +43,14 @@ export default class Header extends React.Component {
                 </NavItem>
               </NavLink>
               <NavLink>
-                <NavItem><RouterLink to="/about">About</RouterLink>
+                <NavItem>
+                  <RouterLink to="/about">About</RouterLink>
                 </NavItem>
               </NavLink>
             </Nav>
           </Collapse>
         </Navbar>
-      </div >
+      </div>
     );
   }
 }
