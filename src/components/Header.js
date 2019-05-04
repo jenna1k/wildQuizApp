@@ -7,16 +7,24 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
     };
+
+    this.toggle = this.toggle.bind(this);
+    this.closeNavbar = this.closeNavbar.bind(this);
   }
 
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
+  }
+
+  closeNavbar() {
+    if (this.state.isOpen == true) {
+      this.toggle();
+    }
   }
 
   render() {
@@ -34,17 +42,17 @@ export default class Header extends React.Component {
             <Nav className="ml-auto" navbar>
               <NavLink>
                 <NavItem>
-                  <RouterLink exact to="/home">Home</RouterLink>
+                  <RouterLink exact to="/home" onClick={this.closeNavbar}>Home</RouterLink>
                 </NavItem>
               </NavLink>
               <NavLink>
                 <NavItem>
-                  <RouterLink to="/how_to_play">How to play</RouterLink>
+                  <RouterLink to="/how_to_play" onClick={this.closeNavbar}>How to play</RouterLink>
                 </NavItem>
               </NavLink>
               <NavLink>
                 <NavItem>
-                  <RouterLink to="/about">About</RouterLink>
+                  <RouterLink to="/about" onClick={this.closeNavbar}>About</RouterLink>
                 </NavItem>
               </NavLink>
             </Nav>
