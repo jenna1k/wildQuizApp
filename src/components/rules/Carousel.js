@@ -23,8 +23,8 @@ const items = [
 ];
 
 const Carousel = () => (
-    <Jumbotron>
-        <UncontrolledCarousel items={items} />;
+  <Jumbotron>
+    <UncontrolledCarousel items={items} />;
     </Jumbotron>
 )
 

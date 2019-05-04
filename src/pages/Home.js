@@ -1,5 +1,5 @@
 import React from 'react';
-import Gamebox from '../components/Gamebox';
+import Gamebox from '../components/game/Gamebox';
 
 export default class Home extends React.Component {
   constructor(props) {

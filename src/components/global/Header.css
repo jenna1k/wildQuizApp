@@ -5,8 +5,8 @@
 
 .navbar-brand span {
   vertical-align: middle;
-  color: #1fdab1 !important;
-  font-size: 28px !important;
+  color: #1fdab1;
+  font-size: 28px;
   text-shadow: 1px 2px #1f47da;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .navbar {
-  padding: 2px 12px !important;
+  padding: 2px 12px;
   background-color: #671fda;
   font-size: 28px;
   font-family: 'Quicksand', 'Jura', sans-serif;
