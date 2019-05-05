@@ -25,7 +25,7 @@ const items = [
 const Carousel = () => (
   <Jumbotron>
     <UncontrolledCarousel items={items} />;
-    </Jumbotron>
+  </Jumbotron>
 )
 
 export default Carousel;
