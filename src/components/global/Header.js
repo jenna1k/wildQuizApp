@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
 import { NavLink as RouterLink } from 'react-router-dom';
 import './Header.css';
 
@@ -40,21 +40,15 @@ export default class Header extends React.Component {
           <NavbarToggler className="custom-toggler" onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavLink>
-                <NavItem>
-                  <RouterLink exact to="/home" onClick={this.closeNavbar}>Home</RouterLink>
-                </NavItem>
-              </NavLink>
-              <NavLink>
-                <NavItem>
-                  <RouterLink to="/how_to_play" onClick={this.closeNavbar}>How to play</RouterLink>
-                </NavItem>
-              </NavLink>
-              <NavLink>
-                <NavItem>
-                  <RouterLink to="/about" onClick={this.closeNavbar}>About</RouterLink>
-                </NavItem>
-              </NavLink>
+              <NavItem>
+                <RouterLink exact to="/home" onClick={this.closeNavbar}>Home</RouterLink>
+              </NavItem>
+              <NavItem>
+                <RouterLink to="/how_to_play" onClick={this.closeNavbar}>How to play</RouterLink>
+              </NavItem>
+              <NavItem>
+                <RouterLink to="/about" onClick={this.closeNavbar}>About</RouterLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

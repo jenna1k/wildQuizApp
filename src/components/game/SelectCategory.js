@@ -1,20 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FormGroup, Label, Input } from 'reactstrap';
 
 export default class SelectCategory extends React.Component {
+  static defaultProps = {
+    setCategoryHandler: null,
+    defaultCategory: "any",
+    defaultCategoryText: "Any Category"
+  }
+
+  static propTypes = {
+    setCategoryHandler: PropTypes.func,
+    defaultCategory: PropTypes.string,
+    defaultCategoryText: PropTypes.string
+  }
+
   constructor(props) {
     super(props);
 
-    this.defaultProps = {
-      defaultCategory: "Any Category"
-    };
-
-    this.toggle = this.toggle.bind(this);
-    this.changeValue = this.changeValue.bind(this);
+    this.selectCategoryHandler = this.selectCategoryHandler.bind(this);
     this.state = {
-      dropdownOpen: false,
       categoryList: [],
-      selectedCategory: "Any Category"
+      selectedCategory: "any"
     };
   }
 
@@ -26,25 +33,26 @@ export default class SelectCategory extends React.Component {
     fetch("https://opentdb.com/api_category.php")
       .then(res => res.json())
       .then(data => { this.setState({ categoryList: data.trivia_categories }) })
+      .catch(error => console.log(error));
   }
 
-  changeValue(e) {
-    this.setState({ selectedCategory: e.currentTarget.value })
-  }
+  selectCategoryHandler(e) {
+    this.setState({
+      selectedCategory: e.currentTarget.value
+    });
 
-  toggle() {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }));
+    if (this.props.setCategoryHandler != null) {
+      this.props.setCategoryHandler(e.target.value);
+    }
   }
 
   render() {
     return (
       <FormGroup>
         <Label for="selectCategory">Choose the category:</Label>
-        <Input id="selectCategory" type="select" name="select" onChange={this.changeValue}>
-          <option value="any" onChange={this.changeValue}>{this.defaultProps.defaultCategory}</option>
-          {this.state.categoryList.map((item) => <option value={item.id} onChange={this.changeValue}>{item.name}</option>)}
+        <Input id="selectCategory" type="select" name="select" onChange={this.selectCategoryHandler}>
+          <option key={this.props.defaultCategoryText} value={this.props.defaultCategory} onChange={this.selectCategoryHandler}>{this.props.defaultCategoryText}</option>
+          {this.state.categoryList.map((item) => <option key={item.name} value={item.id} onChange={this.selectCategoryHandler}>{item.name}</option>)}
         </Input>
       </FormGroup>
     );

@@ -22,6 +22,8 @@
 }
 
 .navbar a {
+  padding-right: 10px;
+  padding-left: 10px;
   color: #1fdab1;
   font-size: 28px;
   text-shadow: 1px 2px #1f47da;
