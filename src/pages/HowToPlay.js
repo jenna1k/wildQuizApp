@@ -6,7 +6,9 @@ export default class HowToPlay extends React.Component {
   render() {
     return (
       <div>
-        <Carousel />
+        <Container>
+          <Carousel />
+        </Container>
       </div>
     )
   }
