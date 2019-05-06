@@ -1,4 +1,6 @@
 import React from 'react';
+import SelectCategory from './SelectCategory';
+import './GameSettings.css';
 
 export default class GameSettings extends React.Component {
   constructor(props) {
@@ -13,7 +15,10 @@ export default class GameSettings extends React.Component {
 
   render() {
     return (
-      <div>Game Settings</div>
+      <div id="game-settings">
+        <h1>Game Settings</h1>
+        <SelectCategory />
+      </div>
     )
   }
 }

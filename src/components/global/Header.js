@@ -22,7 +22,7 @@ export default class Header extends React.Component {
   }
 
   closeNavbar() {
-    if (this.state.isOpen == true) {
+    if (this.state.isOpen === true) {
       this.toggle();
     }
   }
