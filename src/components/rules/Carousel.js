@@ -23,9 +23,9 @@ const items = [
 ];
 
 const Carousel = () => (
-    <Jumbotron>
-        <UncontrolledCarousel items={items} />;
-    </Jumbotron>
+  <Jumbotron>
+    <UncontrolledCarousel items={items} />
+  </Jumbotron>
 )
 
 export default Carousel;

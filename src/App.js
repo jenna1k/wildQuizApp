@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-import Header from './components/Header'
+import Header from './components/global/Header'
 import Home from './pages/Home';
 import About from './pages/About';
-import HowToPlay from './pages/HowToPlay';
-import Footer from './components/Footer';
+import Rules from './pages/Rules';
+import Footer from './components/global/Footer';
 
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
 
         <Route path={"/home"} component={Home} />
         <Route path={"/about"} component={About} />
-        <Route path={"/how_to_play"} component={HowToPlay} />
+        <Route path={"/how_to_play"} component={Rules} />
         <Footer />
       </Router>
     );

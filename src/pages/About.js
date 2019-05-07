@@ -1,5 +1,5 @@
 import React from 'react';
-import Profiles from '../components/Profiles.js'
+import Profiles from '../components/about/Profiles';
 
 export default class About extends React.Component {
   render() {

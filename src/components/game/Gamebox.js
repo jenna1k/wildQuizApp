@@ -3,9 +3,9 @@ import {
   Jumbotron, Card, Button, CardTitle, CardText, CardBody,
   CardHeader, CardFooter, Row, Col, Alert, Progress
 } from 'reactstrap';
-import './Gamebox.css'
+import './GameBox.css'
 
-export default class Gamebox extends React.Component {
+export default class GameBox extends React.Component {
   constructor(props) {
     super(props);
   }
