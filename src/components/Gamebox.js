@@ -29,7 +29,7 @@ const Gamebox = ({ quiz }) => {
 				</Col>
 		</Row>
 	</Jumbotron>
-);
+  );
 }
 
 
