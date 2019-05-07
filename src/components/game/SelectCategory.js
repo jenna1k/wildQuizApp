@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, Label, Input } from 'reactstrap';
+import { FormGroup, Label, Input, FormText } from 'reactstrap';
 
 export default class SelectCategory extends React.Component {
   static defaultProps = {
@@ -49,11 +49,21 @@ export default class SelectCategory extends React.Component {
   render() {
     return (
       <FormGroup>
-        <Label for="selectCategory">Choose the category:</Label>
+        <Label for="selectCategory">Category:</Label>
         <Input id="selectCategory" type="select" name="select" onChange={this.selectCategoryHandler}>
-          <option key={this.props.defaultCategoryText} value={this.props.defaultCategory} onChange={this.selectCategoryHandler}>{this.props.defaultCategoryText}</option>
-          {this.state.categoryList.map((item) => <option key={item.name} value={item.id} onChange={this.selectCategoryHandler}>{item.name}</option>)}
+          <option key={this.props.defaultCategoryText}
+            value={this.props.defaultCategory}
+            onChange={this.selectCategoryHandler}>
+            {this.props.defaultCategoryText}
+          </option>
+          {this.state.categoryList.map((item) =>
+            <option key={item.name}
+              value={item.id}
+              onChange={this.selectCategoryHandler}>
+              {item.name}
+            </option>)}
         </Input>
+        <FormText>Choose the category of questions.</FormText>
       </FormGroup>
     );
   }
