@@ -28,7 +28,7 @@ export default class NumberOfQuestions extends React.Component {
     });
 
     if (this.props.setAmountHandler != null) {
-      this.props.setAmountHandler(e.target.value);
+      this.props.setAmountHandler(e.currentTarget.value);
     }
   }
 
@@ -36,8 +36,14 @@ export default class NumberOfQuestions extends React.Component {
     return (
       <FormGroup>
         <Label for="numberOfQuestions">Number of questions:</Label>
-        <Input id="numberOfQuestions" onChange={this.setNumberOfQuestionsHandler} />
-        <FormText>Specify number of questions.</FormText>
+        <Input id="numberOfQuestions"
+          type="number"
+          value={this.state.numOfQuestions}
+          maxLength={2}
+          min={1}
+          max={50}
+          onChange={this.setNumberOfQuestionsHandler} />
+        <FormText>Specify number of questions (no more than 50).</FormText>
       </FormGroup>
     );
   }

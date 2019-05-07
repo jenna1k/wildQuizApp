@@ -15,9 +15,9 @@ export default class GameSettings extends React.Component {
     this.setDifficultyHandler = this.setDifficultyHandler.bind(this);
 
     this.state = {
-      difficulty: "",
+      difficulty: "any", //
       category: "any", // API call: <url> + (this.state.category == "any" ? "" : ("&category=" + this.state.category))
-      amount: 10
+      amount: 10 //handle values outside 1-50 
     };
   }
 
@@ -43,14 +43,14 @@ export default class GameSettings extends React.Component {
     return (
       <Container>
         <Row>
-          <Col md="4">
+          <Col lg="4">
             <SelectCategory setCategoryHandler={this.setCategoryHandler} />
           </Col>
-          <Col md="4">
-            <NumberOfQuestions setAmountHandler={this.setAmountHandler} />
-          </Col>
-          <Col md="4">
+          <Col lg="4">
             <SelectDifficulty setDifficultyHandler={this.setDifficultyHandler} />
+          </Col>
+          <Col lg="4">
+            <NumberOfQuestions setAmountHandler={this.setAmountHandler} />
           </Col>
         </Row>
       </Container>
