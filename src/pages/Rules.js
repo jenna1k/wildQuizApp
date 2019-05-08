@@ -5,7 +5,7 @@ export default class Rules extends React.Component {
   render() {
     return (
       <div>
-        <Carousel />
+          <Carousel />
       </div>
     )
   }
