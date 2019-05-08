@@ -9,9 +9,10 @@ const Answers = ({correct_answer, incorrect_answers, clickButton})=> {
   for (let i = 0; i < answerList.length; i++){
     list.push(
       <Col lg="6" sm="12">
-      <Button id="__btn" className="m-1" color="info" size="lg" key={i} block onClick={clickButton}>{answerList[i]}</Button>
+      <Button className="m-1" color="info" size="lg" key={i} block onClick={(e) => clickButton(e,i)}>{answerList[i]}</Button>
       </Col>
     )
+    console.log("array2:",answerList); 
   }
 
 

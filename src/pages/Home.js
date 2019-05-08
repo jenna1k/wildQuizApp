@@ -9,16 +9,23 @@ export default class Home extends React.Component {
     this.state = {
       mode: 'select', // 'select'for customization, 'start' for quiz, 'end' for result
       quiz: {},
-      score: 0
+      score: 0,
+      answered: false
     };
 
     this.clickButton = this.clickButton.bind(this);
   }
 
-  clickButton(e) {
-    console.log('test: ');
+  clickButton(e, key) {
+    // console.log('test: ', e.target.style.backgroundColor = 'red', key, e.target);
     // e.target
     e.preventDefault();
+    // this.setState({answered: true})  //
+    if(key == 0){
+      e.target.style.backgroundColor = 'green'
+    } else {
+      e.target.style.backgroundColor = 'red'
+    }
   };
 
   componentDidMount(){
