@@ -2,9 +2,9 @@ import React from 'react';
 import { Jumbotron, Card, Button, CardTitle, CardText, CardBody,
 		CardHeader, CardFooter, Row, Col } from 'reactstrap';
 import './Gamebox.css'
-import Question from '../components/Question';
-import Answers from '../components/Answers';
-import ProgressBar from '../components/ProgressBar';
+import Question from './Question';
+import Answers from './Answers';
+import ProgressBar from './ProgressBar';
 
 const Gamebox = ({ quiz }) => {
   return(

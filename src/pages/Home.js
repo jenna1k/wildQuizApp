@@ -1,5 +1,6 @@
 import React from 'react';
-import Gamebox from '../components/Gamebox';
+import GameBox from '../components/game/Gamebox';
+import GameSettings from '../components/game/GameSettings';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -34,7 +35,8 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-          <Gamebox quiz={this.state.quiz} displayType={'text'} />
+        <GameSettings />
+        <GameBox quiz={this.state.quiz} displayType={'text'} />
       </div>
     )
   }
