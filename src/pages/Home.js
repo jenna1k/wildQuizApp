@@ -7,24 +7,25 @@ export default class Home extends React.Component {
     super(props);
 
     this.state = {
-      mode: 'select', // 'select'for customization, 'start' for quiz, 'end' for result
+      mode: 'quiz', // 'customization', 'quiz', 'result'
       quiz: {},
       score: 0,
-      answered: false
+      answered: false,
+      progress: 0
     };
 
     this.clickButton = this.clickButton.bind(this);
   }
 
   clickButton(e, key) {
-    // console.log('test: ', e.target.style.backgroundColor = 'red', key, e.target);
-    // e.target
+    console.log('This button is :', e.target, 'and key is :', key);
     e.preventDefault();
-    // this.setState({answered: true})  //
     if(key == 0){
-      e.target.style.backgroundColor = 'green'
+      e.target.style.backgroundColor = 'green';
+      // this.setState({score: +10, answered: true})
     } else {
-      e.target.style.backgroundColor = 'red'
+      e.target.style.backgroundColor = 'red';
+      // this.setState({answered: true})
     }
   };
 
@@ -39,11 +40,22 @@ export default class Home extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <GameSettings />
-        <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton}/>
-      </div>
-    )
+
+    const mode = this.state.mode
+
+    if (mode == 'customization') {
+      return (
+        <div>
+          <GameSettings />
+        </div>
+      ) 
+    } else if (mode == 'quiz') {
+      return (
+        <div>
+          <GameSettings />
+          <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton}/>
+        </div>
+      )
+    }
   }
 }
