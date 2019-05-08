@@ -1,24 +1,19 @@
 import React from 'react';
 import { Card, Button, Row, Col } from 'reactstrap';
 
-const Answers = ({correct_answer, incorrect_answers})=> {
+const Answers = ({correct_answer, incorrect_answers, clickButton})=> {
   let list = [];
-  let data = incorrect_answers;
 
   const answerList = [].concat(correct_answer).concat(incorrect_answers);
   console.log("array:",answerList);
   for (let i = 0; i < answerList.length; i++){
     list.push(
       <Col lg="6" sm="12">
-      <Button className="m-1" color="info" size="lg" key={i} block onClick={clickButton}>{answerList[i]}</Button>
+      <Button id="__btn" className="m-1" color="info" size="lg" key={i} block onClick={clickButton}>{answerList[i]}</Button>
       </Col>
     )
   }
 
-  const clickButton = (e) => {
-    console.log('test: ',e.target);
-    e.preventDefault();
-  }
 
   const shuffle = (array) => {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -38,17 +33,14 @@ const Answers = ({correct_answer, incorrect_answers})=> {
   
     return array;
   }
-  
-  // Used like so
-  var arr = [2, 11, 37, 42];
-  arr = shuffle(arr);
-  console.log(arr);
+
 
   return(
     <Card className="border-0 bg-light">
       <Row>
         {shuffle(list)}
-        {/* Correct: {correct_answer} */}
+        Correct: {correct_answer}
+
       </Row>
     </Card>
   )

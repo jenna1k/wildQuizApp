@@ -7,20 +7,19 @@ export default class Home extends React.Component {
     super(props);
 
     this.state = {
-      quiz: {
-        category:"",
-        type:"",
-        difficulty:"",
-        question:"",
-        correct_answer:"",
-        incorrect_answers:[
-          "",
-          "",
-          ""
-        ]
-      }
+      mode: 'select', // 'select'for customization, 'start' for quiz, 'end' for result
+      quiz: {},
+      score: 0
     };
+
+    this.clickButton = this.clickButton.bind(this);
   }
+
+  clickButton(e) {
+    console.log('test: ');
+    // e.target
+    e.preventDefault();
+  };
 
   componentDidMount(){
       fetch("https://opentdb.com/api.php?amount=1&type=multiple")
@@ -36,7 +35,7 @@ export default class Home extends React.Component {
     return (
       <div>
         <GameSettings />
-        <GameBox quiz={this.state.quiz} displayType={'text'} />
+        <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton}/>
       </div>
     )
   }

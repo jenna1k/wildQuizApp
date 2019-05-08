@@ -1,12 +1,12 @@
 import React from 'react';
-import { Jumbotron, Card, Button, CardTitle, CardText, CardBody,
+import { Jumbotron, Button, CardTitle, CardText, CardBody,
 		CardHeader, CardFooter, Row, Col } from 'reactstrap';
 import './Gamebox.css'
 import Question from './Question';
 import Answers from './Answers';
 import ProgressBar from './ProgressBar';
 
-const Gamebox = ({ quiz }) => {
+const Gamebox = ({ quiz, score, clickButton }) => {
   return(
 		<Jumbotron fluid>
       <Row className="d-flex justify-content-center">
@@ -21,10 +21,10 @@ const Gamebox = ({ quiz }) => {
             <Button outline color="info" className="m-1 d-inline" disabled>Difficulty : {quiz.difficulty}</Button>
           </CardText>
           <Question question={quiz.question}/>
-          <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers}/>
+          <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers} clickButton={clickButton}/>
           </CardBody>
           <CardFooter className="bg-dark">
-            <Button outline color="success" disabled>Score: 90</Button>
+            <Button outline color="success" disabled>Score: {score}</Button>
           </CardFooter>
         </Col>
       </Row>
