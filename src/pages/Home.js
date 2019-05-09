@@ -22,10 +22,10 @@ export default class Home extends React.Component {
     e.preventDefault();
     if(key == 0){
       e.target.style.backgroundColor = 'green';
-      // this.setState({score: +10, answered: true})
+      this.setState(state => ({ score: state.score+10, answered: !state.answered }))
     } else {
       e.target.style.backgroundColor = 'red';
-      // this.setState({answered: true})
+      this.setState(state => ({ answered: !state.answered }))
     }
   };
 
