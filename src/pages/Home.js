@@ -15,7 +15,6 @@ export default class Home extends React.Component {
     };
 
     this.clickButton = this.clickButton.bind(this);
-    console.log('constructor!!!!!!!!!!')
   }
 
   clickButton(e, key) {
@@ -30,12 +29,7 @@ export default class Home extends React.Component {
     }
   };
 
-  componentWillMount(){
-    console.log('componentWillMount in Home')
-  }
-
   componentDidMount() {
-    console.log('componentDidMount in Home, API fetching!!!!!')
     fetch("https://opentdb.com/api.php?amount=1&type=multiple")
       .then(res => res.json())
       .then(data => {
@@ -43,7 +37,6 @@ export default class Home extends React.Component {
           quiz: data.results[0]
         })
       })
-
   }
 
   render() {

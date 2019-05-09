@@ -8,7 +8,9 @@ import Answers from './Answers';
 import ProgressBar from './ProgressBar';
 
 const Gamebox = ({ quiz, score, clickButton, answered }) => {
-  console.log('GameBox component!!!!!!!!!')
+  
+  const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
   return (
     <Jumbotron fluid>
       <Row className="d-flex justify-content-center">
@@ -22,7 +24,7 @@ const Gamebox = ({ quiz, score, clickButton, answered }) => {
               <Button outline color="info" className="m-1 d-inline" disabled>{quiz.category}</Button>
               <Button outline color="info" className="m-1 d-inline" disabled>Difficulty : {quiz.difficulty}</Button>
             </CardText>
-            <Question question={quiz.question} />
+            <Question question={renderHTML(quiz.question)} />
             <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers} clickButton={clickButton} answered={answered}/>
           </CardBody>
           <CardFooter className="bg-dark">
