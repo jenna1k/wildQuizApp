@@ -1,5 +1,5 @@
 import React from 'react';
-import GameBox from '../components/game/Gamebox';
+import GameBox from '../components/game/GameBox';
 import GameSettings from '../components/game/GameSettings';
 
 export default class Home extends React.Component {
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
   clickButton(e, key) {
     console.log('This button is :', e.target, 'and key is :', key);
     e.preventDefault();
-    if(key == 0){
+    if (key == 0) {
       e.target.style.backgroundColor = 'green';
       // this.setState({score: +10, answered: true})
     } else {
@@ -29,13 +29,14 @@ export default class Home extends React.Component {
     }
   };
 
-  componentDidMount(){
-      fetch("https://opentdb.com/api.php?amount=1&type=multiple")
-          .then(res => res.json())
-          .then(data => { this.setState({ 
-            quiz: data.results[0]
-           })
-          })
+  componentDidMount() {
+    fetch("https://opentdb.com/api.php?amount=1&type=multiple")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          quiz: data.results[0]
+        })
+      })
 
   }
 
@@ -48,12 +49,12 @@ export default class Home extends React.Component {
         <div>
           <GameSettings />
         </div>
-      ) 
+      )
     } else if (mode == 'quiz') {
       return (
         <div>
           <GameSettings />
-          <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton}/>
+          <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton} />
         </div>
       )
     }
