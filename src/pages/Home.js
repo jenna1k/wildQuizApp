@@ -21,14 +21,18 @@ export default class Home extends React.Component {
   clickButton(e, key) {
     console.log('This button is :', e.target, 'and key is :', key);
     e.preventDefault();
-    if (key == 0) {
+    if (key == 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
-      this.setState(state => ({ score: state.score+10, answered: !state.answered }))
-    } else {
+      this.setState(state => ({ score: state.score+10, answered: true }))
+    } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
-      this.setState(state => ({ answered: !state.answered }))
+      this.setState(state => ({ answered: true }))
     }
   };
+
+  componentWillMount(){
+    console.log('componentWillMount in Home')
+  }
 
   componentDidMount() {
     console.log('componentDidMount in Home, API fetching!!!!!')
