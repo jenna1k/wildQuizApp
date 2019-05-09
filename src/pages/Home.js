@@ -15,21 +15,27 @@ export default class Home extends React.Component {
     };
 
     this.clickButton = this.clickButton.bind(this);
+    console.log('constructor!!!!!!!!!!')
   }
 
   clickButton(e, key) {
     console.log('This button is :', e.target, 'and key is :', key);
     e.preventDefault();
-    if (key == 0) {
+    if (key == 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
-      // this.setState({score: +10, answered: true})
-    } else {
+      this.setState(state => ({ score: state.score+10, answered: true }))
+    } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
-      // this.setState({answered: true})
+      this.setState(state => ({ answered: true }))
     }
   };
 
+  componentWillMount(){
+    console.log('componentWillMount in Home')
+  }
+
   componentDidMount() {
+    console.log('componentDidMount in Home, API fetching!!!!!')
     fetch("https://opentdb.com/api.php?amount=1&type=multiple")
       .then(res => res.json())
       .then(data => {
@@ -54,7 +60,7 @@ export default class Home extends React.Component {
       return (
         <div>
           <GameSettings />
-          <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton} />
+          <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton} answered={this.state.answered}/>
         </div>
       )
     }
