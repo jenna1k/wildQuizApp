@@ -9,6 +9,7 @@ import ProgressBar from './ProgressBar';
 
 const Gamebox = ({ quiz, score, clickButton, answered }) => {
   
+  // FOR DECODING
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
   return (
