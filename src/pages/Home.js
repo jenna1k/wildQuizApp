@@ -20,18 +20,20 @@ export default class Home extends React.Component {
 
   clickButton(e, key) {
     console.log('This button is :', e.target, 'and key is :', key);
-    e.preventDefault();
+    
     if (key == 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
       this.setState(state => ({ score: state.score+10, answered: true }))
       setTimeout( () => {
         this.getAPI()
+        this.setState(state => ({ answered: false }))
       }, 1000);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
       this.setState(state => ({ answered: true }))
       setTimeout( () => {
         this.getAPI()
+        this.setState(state => ({ answered: false }))
       }, 1000);
     }
   };
