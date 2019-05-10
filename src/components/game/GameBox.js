@@ -9,6 +9,7 @@ import ProgressBar from './ProgressBar';
 
 const Gamebox = ({ quiz, score, clickButton, answered }) => {
   
+  // FOR DECODING
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
   return (
@@ -25,7 +26,7 @@ const Gamebox = ({ quiz, score, clickButton, answered }) => {
               <Button outline color="info" className="m-1 d-inline" disabled>Difficulty : {quiz.difficulty}</Button>
             </CardText>
             <Question question={renderHTML(quiz.question)} />
-            <Answers correct_answer={renderHTML(quiz.correct_answer)} incorrect_answers={renderHTML(quiz.incorrect_answers)} clickButton={clickButton} answered={answered}/>
+            <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers} clickButton={clickButton} answered={answered}/>
           </CardBody>
           <CardFooter className="bg-dark">
             <Button outline color="success" disabled>Score: {score}</Button>
