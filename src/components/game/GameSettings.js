@@ -101,7 +101,10 @@ export default class GameSettings extends React.Component {
         break;
 
       case 'selectAmount':
-        gameSettings = <NumberOfQuestions setAmountHandler={this.setAmountHandler} />
+        gameSettings = <div>
+          <NumberOfQuestions setAmountHandler={this.setAmountHandler} />
+          <Button color="success" onClick={this.generateAPIRequestURL}>Play</Button>
+        </div>
         break;
 
       default:
