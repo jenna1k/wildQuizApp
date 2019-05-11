@@ -15,28 +15,42 @@ export default class Home extends React.Component {
     };
 
     this.clickButton = this.clickButton.bind(this);
+    this.getAPI = this.getAPI.bind(this);
   }
 
   clickButton(e, key) {
     console.log('This button is :', e.target, 'and key is :', key);
-    e.preventDefault();
+    
     if (key == 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
       this.setState(state => ({ score: state.score+10, answered: true }))
+      setTimeout( () => {
+        this.getAPI()
+        this.setState(state => ({ answered: false }))
+      }, 1000);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
       this.setState(state => ({ answered: true }))
+      setTimeout( () => {
+        this.getAPI()
+        this.setState(state => ({ answered: false }))
+      }, 1000);
     }
   };
 
-  componentDidMount() {
+  getAPI(){
     fetch("https://opentdb.com/api.php?amount=1&type=multiple")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          quiz: data.results[0]
-        })
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        quiz: data.results[0]
       })
+    })
+  }
+  
+
+  componentDidMount() {
+   this.getAPI();
   }
 
   render() {

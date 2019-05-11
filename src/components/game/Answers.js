@@ -25,7 +25,12 @@ export default class Answers extends React.Component {
     for (let i = 0; i < answerList.length; i++){
       list.push(
         <Col lg="6" sm="12">
-        <Button className="m-1" color="info" size="lg" key={i} block onClick={(e) => clickButton(e,i)} dangerouslySetInnerHTML={{ __html: answerList[i] }}></Button>
+        <Button className="m-1" color="info" size="lg" key={i} block 
+        onClick={(e) => {
+          e.preventDefault();
+          clickButton(e,i);
+          }} 
+        dangerouslySetInnerHTML={{ __html: answerList[i] }}></Button>
         </Col>
       )
     }
