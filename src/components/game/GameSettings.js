@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row } from 'reactstrap';
+import { Container, Button } from 'reactstrap';
 import SelectCategory from './SelectCategory';
 import NumberOfQuestions from './NumberOfQuestions';
 import SelectDifficulty from './SelectDifficulty';
@@ -15,10 +15,25 @@ export default class GameSettings extends React.Component {
     this.setDifficultyHandler = this.setDifficultyHandler.bind(this);
 
     this.state = {
-      difficulty: "any", //
-      category: "any", // API call: <url> + (this.state.category == "any" ? "" : ("&category=" + this.state.category))
-      amount: 10 //handle values outside 1-50 
+      step: 'welcome', // 'welcome', 'selectCategory', 'selectDifficulty', 'selectAmount'
+      type: 'multiple',
+      difficulty: 'any', //
+      category: 'any', // API call: <url> + (this.state.category == "any" ? "" : ("&category=" + this.state.category))
+      amount: 10, // handle values outside 1-50 
+      token: '' // Session Tokens are unique keys that will help keep track of the questions the API has already retrieved. By appending a Session Token to a API Call, the API will never give you the same question twice. 
     };
+  }
+
+  componentDidMount() {
+    this.getSessionToken();
+    console.log(this.state.token);
+  }
+
+  getSessionToken() {
+    fetch("https://opentdb.com/api_token.php?command=request")
+      .then(res => res.json())
+      .then(data => { this.setState({ token: data.token }) })
+      .catch(error => console.log(error));
   }
 
   setCategoryHandler(category) {
@@ -39,20 +54,37 @@ export default class GameSettings extends React.Component {
     })
   }
 
+  generateAPIRequest() {
+
+  }
+
   render() {
+    var customizedSetting;
+    switch (this.state.step) {
+      case 'welcome':
+        customizedSetting =
+          <div>
+            <h1>Welcome to Wild Quiz</h1>
+            <Button>Play</Button>
+            <Button>Customize Game</Button>
+          </div>
+        break;
+      case 'selectCategory':
+        customizedSetting = <SelectCategory setCategoryHandler={this.setCategoryHandler} />;
+        break;
+      case 'selectDifficulty':
+        customizedSetting = <SelectDifficulty setDifficultyHandler={this.setDifficultyHandler} />;
+        break;
+      case 'selectAmount':
+        customizedSetting = <NumberOfQuestions setAmountHandler={this.setAmountHandler} />;
+        break;
+      default:
+        customizedSetting = <h1>Welcome to Wild Quiz</h1>;
+        break;
+    }
     return (
       <Container>
-        <Row>
-          <Col lg="4">
-            <SelectCategory setCategoryHandler={this.setCategoryHandler} />
-          </Col>
-          <Col lg="4">
-            <SelectDifficulty setDifficultyHandler={this.setDifficultyHandler} />
-          </Col>
-          <Col lg="4">
-            <NumberOfQuestions setAmountHandler={this.setAmountHandler} />
-          </Col>
-        </Row>
+        {customizedSetting}
       </Container>
     )
   }

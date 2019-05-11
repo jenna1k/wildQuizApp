@@ -23,12 +23,20 @@ export default class NumberOfQuestions extends React.Component {
   }
 
   setNumberOfQuestionsHandler(e) {
+    let filteredValue = e.currentTarget.value;
+
+    // limit max number of question to 50, min to 1
+    if (filteredValue !== "") {
+      filteredValue = filteredValue > 50 ? 50 : filteredValue;
+      filteredValue = filteredValue < 1 ? 1 : filteredValue;
+    }
+
     this.setState({
-      numOfQuestions: e.currentTarget.value
+      numOfQuestions: filteredValue
     });
 
     if (this.props.setAmountHandler != null) {
-      this.props.setAmountHandler(e.currentTarget.value);
+      this.props.setAmountHandler(filteredValue);
     }
   }
 
