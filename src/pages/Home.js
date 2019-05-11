@@ -8,7 +8,8 @@ export default class Home extends React.Component {
 
     this.state = {
       mode: 'customization', // 'customization', 'quiz', 'result'
-      quiz: {},
+      quizList: [],
+      currentQuiz: 0,
       score: 0,
       answered: false,
       progress: 0,
@@ -25,16 +26,14 @@ export default class Home extends React.Component {
 
     if (key === 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
-      this.setState(state => ({ score: state.score + 10, answered: true }))
+      this.setState(state => ({ score: state.score + 10, answered: true, currentQuiz: this.state.currentQuiz + 1 }))
       setTimeout(() => {
-        this.getData()
         this.setState(state => ({ answered: false }))
       }, 1000);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
-      this.setState(state => ({ answered: true }))
+      this.setState(state => ({ answered: true, currentQuiz: this.state.currentQuiz + 1 }))
       setTimeout(() => {
-        this.getData()
         this.setState(state => ({ answered: false }))
       }, 1000);
     }
@@ -45,7 +44,7 @@ export default class Home extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          quiz: data.results[0]
+          quizList: data.results
         })
       })
   }
@@ -54,8 +53,7 @@ export default class Home extends React.Component {
     this.setState({
       url: url,
       mode: 'quiz'
-    });
-    this.getData();
+    }, this.getData);
   }
 
   // componentDidMount() {
@@ -69,7 +67,11 @@ export default class Home extends React.Component {
         gamePhase = <GameSettings getURL={this.getURL} />;
         break;
       case 'quiz':
-        gamePhase = <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton} answered={this.state.answered} />;
+        if (this.state.quizList.length > 0) {
+          gamePhase = <GameBox quiz={this.state.quizList[this.state.currentQuiz]} score={this.state.score} clickButton={this.clickButton} answered={this.state.answered} />;
+        } else {
+          gamePhase = null;
+        }
         break;
       case 'result':
         gamePhase = <h1>result</h1>

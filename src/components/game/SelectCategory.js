@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, CardColumns, Card, CardBody, Badge } from 'reactstrap';
+import './SelectCategory.css';
 
 export default class SelectCategory extends React.Component {
   static defaultProps = {
@@ -19,6 +20,7 @@ export default class SelectCategory extends React.Component {
     super(props);
 
     this.selectCategoryHandler = this.selectCategoryHandler.bind(this);
+
     this.state = {
       categoryList: [],
       selectedCategory: "any"
@@ -37,34 +39,44 @@ export default class SelectCategory extends React.Component {
   }
 
   selectCategoryHandler(e) {
-    this.setState({
-      selectedCategory: e.currentTarget.value
-    });
+    if (e) {
+      e.preventDefault();
 
-    if (this.props.setCategoryHandler != null) {
-      this.props.setCategoryHandler(e.target.value);
+      var categoryId = e.target.id ? e.target.id.replace("category-", "") : "any";
+
+      this.setState({
+        selectedCategory: categoryId
+      });
+
+      if (this.props.setCategoryHandler != null) {
+        this.props.setCategoryHandler(categoryId);
+      }
     }
   }
 
   render() {
+    var categoryId = "category-";
+
     return (
-      <FormGroup>
-        <Label for="selectCategory">Category:</Label>
-        <Input id="selectCategory" type="select" name="select" onChange={this.selectCategoryHandler}>
-          <option key={this.props.defaultCategoryText}
-            value={this.props.defaultCategory}
-            onChange={this.selectCategoryHandler}>
-            {this.props.defaultCategoryText}
-          </option>
+      <Container>
+        <h2 className="text-center">Select the category of questions</h2>
+        <CardColumns>
+          <a key={this.props.defaultCategoryText} id={categoryId + this.props.defaultCategory} onClick={this.selectCategoryHandler}>
+            <Card onClick={this.selectCategoryHandler}>
+              <CardBody id={categoryId + this.props.defaultCategory}>{this.props.defaultCategoryText}</CardBody>
+            </Card>
+          </a>
           {this.state.categoryList.map((item) =>
-            <option key={item.name}
-              value={item.id}
-              onChange={this.selectCategoryHandler}>
-              {item.name}
-            </option>)}
-        </Input>
-        <FormText>Choose the category of questions.</FormText>
-      </FormGroup>
+            <a key={item.name} id={categoryId + item.id} onClick={this.selectCategoryHandler}>
+              <Card onClick={this.selectCategoryHandler}>
+                <CardBody id={categoryId + item.id}>
+                  {item.name}
+                </CardBody>
+              </Card>
+            </a>
+          )}
+        </CardColumns>
+      </Container>
     );
   }
 }

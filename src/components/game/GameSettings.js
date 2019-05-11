@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row, Button } from 'reactstrap';
+import { Container, Button } from 'reactstrap';
 import SelectCategory from './SelectCategory';
 import NumberOfQuestions from './NumberOfQuestions';
 import SelectDifficulty from './SelectDifficulty';
@@ -44,7 +44,8 @@ export default class GameSettings extends React.Component {
 
   setCategoryHandler(category) {
     this.setState({
-      category: category
+      category: category,
+      gameSetting: 'selectDifficulty'
     })
   }
 
@@ -56,7 +57,8 @@ export default class GameSettings extends React.Component {
 
   setDifficultyHandler(difficulty) {
     this.setState({
-      difficulty: difficulty
+      difficulty: difficulty,
+      gameSetting: 'selectAmount'
     })
   }
 
@@ -85,7 +87,7 @@ export default class GameSettings extends React.Component {
       case 'default':
         gameSettings = <Container className="text-center">
           <h1>Welcome to Wild Quiz</h1>
-          <Button color="success" size="lg" onClick={this.generateAPIRequestURL}> Play</Button>
+          <Button color="success" size="lg" onClick={this.generateAPIRequestURL}>Play</Button>
           <Button color="warning" size="lg" onClick={this.customizeGame}>Custom Game</Button>
         </Container>
         break;

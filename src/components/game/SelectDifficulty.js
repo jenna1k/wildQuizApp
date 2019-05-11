@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, Label, Input, FormText } from 'reactstrap';
+import { FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 
 export default class SelectDifficulty extends React.Component {
   static defaultProps = {
     setDifficultyHandler: null,
     defaultLevel: "any",
-    defaultLevelText: "Any Difficulty",
-    levels: ["easy", "medium", "hard"]
+    defaultLevelText: "Any Difficulty"
   }
 
   static propTypes = {
@@ -28,33 +27,21 @@ export default class SelectDifficulty extends React.Component {
 
   selectLevelHandler(e) {
     this.setState({
-      selectedLevel: e.currentTarget.value
+      selectedLevel: e.currentTarget.id
     });
 
     if (this.props.setDifficultyHandler != null) {
-      this.props.setDifficultyHandler(e.target.value);
+      this.props.setDifficultyHandler(e.target.id);
     }
   }
 
   render() {
     return (
-      <FormGroup>
-        <Label for="select-difficulty">Difficulty:</Label>
-        <Input id="select-difficulty" type="select" name="select" onChange={this.selectLevelHandler}>
-          <option key={this.props.defaultLevelText}
-            value={this.props.defaultLevel}
-            onChange={this.selectLevelHandler}>
-            {this.props.defaultLevelText}
-          </option>
-          {this.props.levels.map((item) =>
-            <option key={item}
-              value={item}
-              onChange={this.selectLevelHandler}>
-              {item.substring(0, 1).toUpperCase() + item.substring(1)}
-            </option>)}
-        </Input>
-        <FormText>Choose the difficulty level of questions.</FormText>
-      </FormGroup>
-    );
+      <div>
+        <Button id='easy' onClick={this.selectLevelHandler}>Easy</Button>
+        <Button id='medium' onClick={this.selectLevelHandler}>Medium</Button>
+        <Button id='hard' onClick={this.selectLevelHandler}>Hard</Button>
+      </div>
+    )
   }
 }
