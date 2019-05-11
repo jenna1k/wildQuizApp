@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button } from 'reactstrap';
+import { Container, Col, Row, Button } from 'reactstrap';
 import SelectCategory from './SelectCategory';
 import NumberOfQuestions from './NumberOfQuestions';
 import SelectDifficulty from './SelectDifficulty';
@@ -19,21 +19,20 @@ export default class GameSettings extends React.Component {
     this.setCategoryHandler = this.setCategoryHandler.bind(this);
     this.setAmountHandler = this.setAmountHandler.bind(this);
     this.setDifficultyHandler = this.setDifficultyHandler.bind(this);
+    this.customizeGame = this.customizeGame.bind(this);
 
     this.state = {
-      step: 'welcome', // 'welcome', 'selectCategory', 'selectDifficulty', 'selectAmount'
+      gameSetting: 'default', // 'default', 'selectCategory', 'selectDifficulty', 'selectAmount'
       type: 'multiple',
-      category: 'any', // API call: <url> + (this.state.category == "any" ? "" : ("&category=" + this.state.category))
-      difficulty: 'any', //
-      amount: 10, // handle values outside 1-50 
-      token: '' // Session Tokens are unique keys that will help keep track of the questions the API has already retrieved. By appending a Session Token to a API Call, the API will never give you the same question twice. 
+      category: 'any',
+      difficulty: 'any',
+      amount: 10,
+      token: '' // By appending a Session Token to a API Call, the API will never give you the same question twice. 
     };
-    console.log(this.props.url);
   }
 
   componentDidMount() {
     this.getSessionToken();
-    console.log(this.state.token);
   }
 
   getSessionToken() {
@@ -62,44 +61,56 @@ export default class GameSettings extends React.Component {
   }
 
   generateAPIRequestURL() {
-    var url = this.props.url
+    const url = this.props.url
       + "api.php?token=" + this.state.token
       + (this.state.category === 'any' ? "" : "&category=" + this.state.category)
       + (this.state.difficulty === 'any' ? "" : "&difficulty=" + this.state.difficulty)
       + "&amount=" + this.state.amount
       + "&type=" + this.state.type;
 
-    console.log(url);
+    if (this.props.getURL != null) {
+      this.props.getURL(url);
+    }
+  }
+
+  customizeGame() {
+    this.setState({
+      gameSetting: 'selectCategory'
+    })
   }
 
   render() {
-    var customizedSetting;
-    switch (this.state.step) {
-      case 'welcome':
-        customizedSetting =
-          <div className="text-center">
-            <h1>Welcome to Wild Quiz</h1>
-            <Button color="success" size="lg" onClick={this.generateAPIRequestURL}> Play</Button>
-            <Button color="warning" size="lg">Custom Game</Button>
-          </div>
+    var gameSettings;
+    switch (this.state.gameSetting) {
+      case 'default':
+        gameSettings = <Container className="text-center">
+          <h1>Welcome to Wild Quiz</h1>
+          <Button color="success" size="lg" onClick={this.generateAPIRequestURL}> Play</Button>
+          <Button color="warning" size="lg" onClick={this.customizeGame}>Custom Game</Button>
+        </Container>
         break;
+
       case 'selectCategory':
-        customizedSetting = <SelectCategory setCategoryHandler={this.setCategoryHandler} />;
+        gameSettings = <SelectCategory setCategoryHandler={this.setCategoryHandler} />
         break;
+
       case 'selectDifficulty':
-        customizedSetting = <SelectDifficulty setDifficultyHandler={this.setDifficultyHandler} />;
+        gameSettings = <SelectDifficulty setDifficultyHandler={this.setDifficultyHandler} />
         break;
+
       case 'selectAmount':
-        customizedSetting = <NumberOfQuestions setAmountHandler={this.setAmountHandler} />;
+        gameSettings = <NumberOfQuestions setAmountHandler={this.setAmountHandler} />
         break;
+
       default:
-        customizedSetting = <h1>Welcome to Wild Quiz</h1>;
+        gameSettings = <div>Default</div>
         break;
     }
+
     return (
-      <Container>
-        {customizedSetting}
-      </Container>
+      <div className="game-settings">
+        {gameSettings}
+      </div>
     )
   }
 }

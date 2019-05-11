@@ -39,8 +39,8 @@ export default class SelectDifficulty extends React.Component {
   render() {
     return (
       <FormGroup>
-        <Label for="selectDifficulty">Difficulty:</Label>
-        <Input id="selectDifficulty" type="select" name="select" onChange={this.selectLevelHandler}>
+        <Label for="select-difficulty">Difficulty:</Label>
+        <Input id="select-difficulty" type="select" name="select" onChange={this.selectLevelHandler}>
           <option key={this.props.defaultLevelText}
             value={this.props.defaultLevel}
             onChange={this.selectLevelHandler}>

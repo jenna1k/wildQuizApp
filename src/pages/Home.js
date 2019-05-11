@@ -11,11 +11,13 @@ export default class Home extends React.Component {
       quiz: {},
       score: 0,
       answered: false,
-      progress: 0
+      progress: 0,
+      url: 'https://opentdb.com/api.php?amount=1&type=multiple'
     };
 
     this.clickButton = this.clickButton.bind(this);
-    this.getAPI = this.getAPI.bind(this);
+    this.getData = this.getData.bind(this);
+    this.getURL = this.getURL.bind(this);
   }
 
   clickButton(e, key) {
@@ -25,21 +27,21 @@ export default class Home extends React.Component {
       e.target.style.backgroundColor = 'green';
       this.setState(state => ({ score: state.score + 10, answered: true }))
       setTimeout(() => {
-        this.getAPI()
+        this.getData()
         this.setState(state => ({ answered: false }))
       }, 1000);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
       this.setState(state => ({ answered: true }))
       setTimeout(() => {
-        this.getAPI()
+        this.getData()
         this.setState(state => ({ answered: false }))
       }, 1000);
     }
   };
 
-  getAPI() {
-    fetch("https://opentdb.com/api.php?amount=1&type=multiple")
+  getData() {
+    fetch(this.state.url)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -48,16 +50,23 @@ export default class Home extends React.Component {
       })
   }
 
-
-  componentDidMount() {
-    this.getAPI();
+  getURL(url) {
+    this.setState({
+      url: url,
+      mode: 'quiz'
+    });
+    this.getData();
   }
+
+  // componentDidMount() {
+  //   this.getData();
+  // }
 
   render() {
     var gamePhase;
     switch (this.state.mode) {
       case 'customization':
-        gamePhase = <GameSettings />;
+        gamePhase = <GameSettings getURL={this.getURL} />;
         break;
       case 'quiz':
         gamePhase = <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton} answered={this.state.answered} />;

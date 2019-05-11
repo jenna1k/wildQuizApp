@@ -43,8 +43,8 @@ export default class NumberOfQuestions extends React.Component {
   render() {
     return (
       <FormGroup>
-        <Label for="numberOfQuestions">Number of questions:</Label>
-        <Input id="numberOfQuestions"
+        <Label for="number-of-questions">Number of questions:</Label>
+        <Input id="number-of-questions"
           type="number"
           value={this.state.numOfQuestions}
           maxLength={2}
