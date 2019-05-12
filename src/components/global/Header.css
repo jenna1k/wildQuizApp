@@ -13,6 +13,12 @@
   padding-right: 12px;
 }
 
+nav {
+  top: 0;
+  position: fixed;
+  z-index: 100;
+}
+
 nav.navbar {
   padding-top: 0px;
   padding-bottom: 2px;
@@ -37,7 +43,6 @@ nav.navbar {
 
 .navbar a:hover {
   color: #fdfd3b;
-  font-weight: bold;
   text-decoration: none;
 }
   

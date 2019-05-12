@@ -1,6 +1,5 @@
 div.setting-text {
   font-size: 1.8rem;
-  font-family: 'Quicksand', 'Jura', sans-serif;
 }
 
 div.card-columns.categories{
@@ -18,7 +17,6 @@ a.category-card:hover{
 }
 
 div.container#select-category {
-  font-family: 'Quicksand', 'Jura', sans-serif;
   max-width: 100%;
 }
 

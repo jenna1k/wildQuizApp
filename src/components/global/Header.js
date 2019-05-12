@@ -29,7 +29,7 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="header">
         <Navbar expand="md" className="navbar-dark">
           <NavbarBrand href="/">
             <img src="https://content.screencast.com/users/aliashkevich/folders/Default/media/3384b2f1-221e-43aa-87e5-9947a9a7d73f/logo_white.png"

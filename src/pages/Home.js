@@ -1,6 +1,8 @@
 import React from 'react';
+import { Container, Spinner } from 'reactstrap';
 import GameBox from '../components/game/GameBox';
 import GameSettings from '../components/game/GameSettings';
+import './Home.css';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -13,7 +15,8 @@ export default class Home extends React.Component {
       score: 0,
       answered: false,
       progress: 0,
-      url: 'https://opentdb.com/api.php?amount=1&type=multiple'
+      url: 'https://opentdb.com/api.php?amount=10&type=multiple',
+      loading: true
     };
 
     this.clickButton = this.clickButton.bind(this);
@@ -44,7 +47,8 @@ export default class Home extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          quizList: data.results
+          quizList: data.results,
+          loading: false
         })
       })
   }
@@ -81,10 +85,20 @@ export default class Home extends React.Component {
         break;
     }
 
+    if (this.state.loading && this.state.mode === 'quiz') {
+      return (
+        <div className="text-center">
+          <Spinner type="grow" />
+          <Spinner type="grow" />
+          <Spinner type="grow" />
+        </div>
+      )
+    }
+
     return (
-      <div>
+      <Container id="home">
         {gamePhase}
-      </div>
+      </Container>
     )
   }
 }

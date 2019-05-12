@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Button, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './NumberOfQuestions.css';
 
 export default class NumberOfQuestions extends React.Component {
@@ -21,6 +21,7 @@ export default class NumberOfQuestions extends React.Component {
       this.setState({
         numOfQuestions: this.props.maxCount
       })
+      this.props.setAmountHandler(this.props.maxCount);
     }
   }
 
