@@ -20,6 +20,7 @@ export default class GameSettings extends React.Component {
     this.setAmountHandler = this.setAmountHandler.bind(this);
     this.setDifficultyHandler = this.setDifficultyHandler.bind(this);
     this.customizeGame = this.customizeGame.bind(this);
+    this.checkAmountOfAvailableQuestions = this.checkAmountOfAvailableQuestions.bind(this);
 
     this.state = {
       gameSetting: 'default', // 'default', 'selectCategory', 'selectDifficulty', 'selectAmount'
@@ -27,7 +28,9 @@ export default class GameSettings extends React.Component {
       category: 'any',
       difficulty: 'any',
       amount: 10,
-      token: '' // By appending a Session Token to a API Call, the API will never give you the same question twice. 
+      token: '', // by appending a Session Token to a API Call, the API will never give you the same question twice. 
+      availableQuestionsList: [], // after category is selected ask API for available count of questions in DB for specific category
+      availableQuestions: 50
     };
   }
 
@@ -46,7 +49,7 @@ export default class GameSettings extends React.Component {
     this.setState({
       category: category,
       gameSetting: 'selectDifficulty'
-    })
+    }, this.checkAmountOfAvailableQuestions)
   }
 
   setAmountHandler(amount) {
@@ -60,6 +63,14 @@ export default class GameSettings extends React.Component {
       difficulty: difficulty,
       gameSetting: 'selectAmount'
     })
+
+    if (this.state.category !== "any") {
+      const param = `total_${difficulty}_question_count`;
+      const availableQuestionsCount = this.state.availableQuestionsList[param];
+      this.setState({
+        availableQuestions: availableQuestionsCount
+      })
+    }
   }
 
   generateAPIRequestURL() {
@@ -81,14 +92,24 @@ export default class GameSettings extends React.Component {
     })
   }
 
+  checkAmountOfAvailableQuestions() {
+    if (this.state.category !== "any") {
+      fetch(this.props.url + "api_count.php?category=" + this.state.category)
+        .then(res => res.json())
+        .then(data => { this.setState({ availableQuestionsList: data.category_question_count }) })
+        .catch(error => console.log(error));
+    }
+    console.log(this.state.availableQustionsList);
+  }
+
   render() {
     var gameSettings;
     switch (this.state.gameSetting) {
       case 'default':
         gameSettings = <Container className="text-center">
           <h1>Welcome to Wild Quiz</h1>
-          <Button className="game-type" color="success" size="lg" onClick={this.generateAPIRequestURL}>Play</Button>
-          <Button className="game-type" color="success" size="lg" onClick={this.customizeGame}>Custom Game</Button>
+          <Button className="game" color="success" size="lg" onClick={this.generateAPIRequestURL}>Play</Button>
+          <Button className="game" color="success" size="lg" onClick={this.customizeGame}>Custom Game</Button>
         </Container>
         break;
 
@@ -101,9 +122,9 @@ export default class GameSettings extends React.Component {
         break;
 
       case 'selectAmount':
-        gameSettings = <div>
-          <NumberOfQuestions setAmountHandler={this.setAmountHandler} />
-          <Button color="success" onClick={this.generateAPIRequestURL}>Play</Button>
+        gameSettings = <div className="text-center">
+          <NumberOfQuestions setAmountHandler={this.setAmountHandler} maxCount={this.state.availableQuestions} />
+          <Button className="game" size="lg" color="success" onClick={this.generateAPIRequestURL}>Play</Button>
         </div>
         break;
 

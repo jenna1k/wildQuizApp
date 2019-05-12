@@ -1,0 +1,15 @@
+input#number-of-questions {
+  max-width: 100px;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+label.setting-text {
+  font-size: 1.8rem;
+  font-family: 'Quicksand', 'Jura', sans-serif;
+}
+
+.form-text {
+  font-size: 1.2rem;
+}
