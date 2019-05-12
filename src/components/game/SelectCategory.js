@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, CardColumns, Card, CardBody, Badge } from 'reactstrap';
+import { Container, CardColumns, Card, CardBody } from 'reactstrap';
 import './SelectCategory.css';
 
 export default class SelectCategory extends React.Component {
@@ -58,17 +58,19 @@ export default class SelectCategory extends React.Component {
     var categoryId = "category-";
 
     return (
-      <Container>
-        <h2 className="text-center">Select the category of questions</h2>
+      <Container id="select-category">
+        <div className="setting-text text-center">
+          <p>Select the category of questions</p>
+        </div>
         <CardColumns>
-          <a key={this.props.defaultCategoryText} id={categoryId + this.props.defaultCategory} onClick={this.selectCategoryHandler}>
-            <Card onClick={this.selectCategoryHandler}>
+          <a className="category-card" href="#" key={this.props.defaultCategoryText} id={categoryId + this.props.defaultCategory} onClick={this.selectCategoryHandler}>
+            <Card className="category" onClick={this.selectCategoryHandler}>
               <CardBody id={categoryId + this.props.defaultCategory}>{this.props.defaultCategoryText}</CardBody>
             </Card>
           </a>
           {this.state.categoryList.map((item) =>
-            <a key={item.name} id={categoryId + item.id} onClick={this.selectCategoryHandler}>
-              <Card onClick={this.selectCategoryHandler}>
+            <a className="category-card" href="#" key={item.name} id={categoryId + item.id} onClick={this.selectCategoryHandler}>
+              <Card className="category" onClick={this.selectCategoryHandler}>
                 <CardBody id={categoryId + item.id}>
                   {item.name}
                 </CardBody>

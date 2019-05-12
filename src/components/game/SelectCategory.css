@@ -1,3 +1,33 @@
-a {
+div.setting-text {
+  font-size: 1.8rem;
+  font-family: 'Quicksand', 'Jura', sans-serif;
+}
+
+a.category-card {
+  color: #000000;
+}
+
+a.category-card:hover{
+  color: #000000;
+}
+
+div.container#select-category {
+  font-family: 'Quicksand', 'Jura', sans-serif;
+}
+
+div.category {
+  margin: 20px;
+  width: auto;
+  height: auto;
+  border-radius: 32px;
+  box-shadow: 8px 6px 6px 0px rgba(0,0,0,0.2);
   cursor: pointer;
+  transition: 0.4s;
+  font-size: 18px;
+}
+
+div.category:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 2px 2px 2px 0px rgba(83, 238, 255, 0.831);
+  background-color: #3bfdfd;
 }

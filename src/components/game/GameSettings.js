@@ -88,7 +88,7 @@ export default class GameSettings extends React.Component {
         gameSettings = <Container className="text-center">
           <h1>Welcome to Wild Quiz</h1>
           <Button color="success" size="lg" onClick={this.generateAPIRequestURL}>Play</Button>
-          <Button color="warning" size="lg" onClick={this.customizeGame}>Custom Game</Button>
+          <Button color="success" size="lg" onClick={this.customizeGame}>Custom Game</Button>
         </Container>
         break;
 

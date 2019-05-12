@@ -32,7 +32,7 @@ export default class Header extends React.Component {
       <div>
         <Navbar expand="md" className="navbar-dark">
           <NavbarBrand href="/">
-            <img src="https://content.screencast.com/users/aliashkevich/folders/wild_quiz/media/47c98acf-8936-4057-b0a6-93a5ed670f92/logo.png"
+            <img src="https://content.screencast.com/users/aliashkevich/folders/Default/media/3384b2f1-221e-43aa-87e5-9947a9a7d73f/logo_white.png"
               alt="logo"
               className="logo" />
             <span>Wild Quiz</span>

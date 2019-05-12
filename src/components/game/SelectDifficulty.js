@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, Label, Input, FormText, Button } from 'reactstrap';
+import { Container, Button } from 'reactstrap';
 
 export default class SelectDifficulty extends React.Component {
   static defaultProps = {
@@ -37,11 +37,16 @@ export default class SelectDifficulty extends React.Component {
 
   render() {
     return (
-      <div>
-        <Button id='easy' onClick={this.selectLevelHandler}>Easy</Button>
-        <Button id='medium' onClick={this.selectLevelHandler}>Medium</Button>
-        <Button id='hard' onClick={this.selectLevelHandler}>Hard</Button>
-      </div>
+      <Container>
+        <div className="setting-text text-center">
+          <p>Select the difficulty level</p>
+        </div>
+        <div className="text-center">
+          <Button color="success" id='easy' onClick={this.selectLevelHandler}>Easy</Button>
+          <Button color="primary" id='medium' onClick={this.selectLevelHandler}>Medium</Button>
+          <Button color="danger" id='hard' onClick={this.selectLevelHandler}>Hard</Button>
+        </div>
+      </Container >
     )
   }
 }
