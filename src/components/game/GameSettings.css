@@ -7,8 +7,9 @@ div.game-settings {
   font-family: 'Quicksand', 'Jura', sans-serif;
 }
 
-button.btn {
+button.btn.game-type {
   margin: 1rem;
   font-size: 26px;
   width: 250px;
+  border-radius: 30px;
 }

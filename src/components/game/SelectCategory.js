@@ -62,7 +62,7 @@ export default class SelectCategory extends React.Component {
         <div className="setting-text text-center">
           <p>Select the category of questions</p>
         </div>
-        <CardColumns>
+        <CardColumns className="categories">
           <a className="category-card" href="#" key={this.props.defaultCategoryText} id={categoryId + this.props.defaultCategory} onClick={this.selectCategoryHandler}>
             <Card className="category" onClick={this.selectCategoryHandler}>
               <CardBody id={categoryId + this.props.defaultCategory}>{this.props.defaultCategoryText}</CardBody>
