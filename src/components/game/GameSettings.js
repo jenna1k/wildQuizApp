@@ -99,7 +99,6 @@ export default class GameSettings extends React.Component {
         .then(data => { this.setState({ availableQuestionsList: data.category_question_count }) })
         .catch(error => console.log(error));
     }
-    console.log(this.state.availableQustionsList);
   }
 
   render() {
