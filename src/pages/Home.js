@@ -5,7 +5,7 @@ import GameSettings from '../components/game/GameSettings';
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log('constructor')
     this.state = {
       mode: 'quiz', // 'customization', 'quiz', 'result'
       quiz: {},
@@ -19,24 +19,43 @@ export default class Home extends React.Component {
   }
 
   clickButton(e, key) {
-    console.log('This button is :', e.target, 'and key is :', key);
+    const ans = document.querySelectorAll('#ans')
+    console.log('button clicked :', e.target, ans.length, ans[0].dataset.answer);
     
     if (key == 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
       this.setState(state => ({ score: state.score+10, answered: true }))
-      setTimeout( () => {
-        this.getAPI()
-        this.setState(state => ({ answered: false }))
-      }, 1000);
+      // get new question
+      // setTimeout( () => {
+        // this.getAPI()
+        // this.setState(state => ({ answered: false }))
+      //   console.log('setTimeout when button clicked')
+      // }, 1000);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
       this.setState(state => ({ answered: true }))
-      setTimeout( () => {
-        this.getAPI()
-        this.setState(state => ({ answered: false }))
-      }, 1000);
+      // show right answer
+      setTimeout( ()=>{
+        for (let i = 0; i < ans.length; i++){
+          if(ans[i].dataset.answer == 'correct'){
+            return ans[i].style.backgroundColor = "green";
+          }
+        }
+      }, 300)
+      // get new question
+      // setTimeout( () => {
+      //   this.getAPI()
+      //   this.setState(state => ({ answered: false }))
+      //   console.log('setTimeout when button clicked')
+      // }, 1000);
     }
   };
+
+  nextButton(){
+    // this.getAPI()
+    console.log('nextButton clicked')
+    // this.setState(state => ({ answered: false }))
+  }
 
   getAPI(){
     fetch("https://opentdb.com/api.php?amount=1&type=multiple")
@@ -50,11 +69,12 @@ export default class Home extends React.Component {
   
 
   componentDidMount() {
+    console.log('componentDidMount : getAPI')
    this.getAPI();
   }
 
   render() {
-
+    console.log('Home.js rendered')
     const mode = this.state.mode
 
     if (mode == 'customization') {
@@ -67,7 +87,7 @@ export default class Home extends React.Component {
       return (
         <div>
           <GameSettings />
-          <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton} answered={this.state.answered}/>
+          <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton} nextButton={this.nextButton} answered={this.state.answered}/>
         </div>
       )
     }
