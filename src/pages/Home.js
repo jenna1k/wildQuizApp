@@ -7,7 +7,6 @@ import './Home.css';
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    console.log('constructor')
 
     this.state = {
       mode: 'customization', // 'customization', 'quiz', 'result'
@@ -58,14 +57,16 @@ export default class Home extends React.Component {
   };
 
   nextButton() {
-    // this.getAPI()
-    console.log('nextButton clicked')
     const ans = document.querySelectorAll('#ans')
     for (let i = 0; i < ans.length; i++) {
       ans[i].style.backgroundColor = "";
     }
     setTimeout(() => {
-      this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+      if (this.state.currentQuiz !== this.state.quizList.length - 1) {
+        this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+      } else {
+        this.setState(state => ({ answered: false, mode: 'result' }))
+      }
     }, 300)
   }
 

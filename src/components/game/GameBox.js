@@ -18,7 +18,7 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
       <Button key="next" color="danger" onClick={(e) => {
         e.preventDefault();
         nextButton(e);
-      }} >Next</Button>
+      }}>Next</Button>
     )
   }
 
