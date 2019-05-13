@@ -20,10 +20,6 @@ export default class Home extends React.Component {
       loading: true
     };
 
-    console.log('<Home>quizList : ', this.state.quizList)
-    console.log('<Home>quizList[currentQuiz] : ', this.state.quizList[this.state.currentQuiz])
-
-
     this.clickButton = this.clickButton.bind(this);
     this.nextButton = this.nextButton.bind(this);
     this.getData = this.getData.bind(this);
@@ -35,13 +31,13 @@ export default class Home extends React.Component {
     console.log('button clicked :', e.target, ans.length, ans[0].dataset.answer);
 
     if (key == 0 && !this.state.answered) {
-      e.target.style.backgroundColor = 'green';
+      e.currentTarget.style.backgroundColor = 'green';
       this.setState(state => ({ score: state.score + 10, answered: true }))
       // setTimeout(() => {
       //   this.setState(state => ({ answered: false }))
       // }, 500);
     } else if (!this.state.answered) {
-      e.target.style.backgroundColor = 'red';
+      e.currentTarget.style.backgroundColor = 'red';
       this.setState(state => ({ answered: true }))
       // show right answer
       setTimeout( ()=>{
