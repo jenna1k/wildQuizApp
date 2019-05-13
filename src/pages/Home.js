@@ -33,7 +33,6 @@ export default class Home extends React.Component {
       e.target.style.backgroundColor = 'green';
       progress.push(true);
       this.setState(state => ({ score: state.score + 10, answered: true, progress: progress }))
-      console.log("!!!" + this.state.progress);
       // setTimeout(() => {
       //   e.currentTarget.style.backgroundColor = 'info'
       // }, 500);
@@ -41,7 +40,6 @@ export default class Home extends React.Component {
       e.target.style.backgroundColor = 'red';
       progress.push(false);
       this.setState(state => ({ answered: true, progress: progress }))
-      console.log("!!!" + this.state.progress);
       // show right answer
       setTimeout(() => {
         for (let i = 0; i < ans.length; i++) {
@@ -109,7 +107,7 @@ export default class Home extends React.Component {
         }
         break;
       case 'result':
-        gamePhase = <h1>result</h1>
+        gamePhase = <h1 className="text-center">Your score: {this.state.score} points</h1>
         break;
       default:
         gamePhase = <GameSettings />;
