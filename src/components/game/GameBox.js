@@ -22,6 +22,9 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton }) => {
       )
   }
 
+  console.log('<GameBox>quiz=quizList[currentQuiz] : ', quiz)
+
+
   return (
     <Jumbotron fluid>
       <Row className="d-flex justify-content-center">

@@ -16,8 +16,8 @@ export default class Answers extends React.Component {
     console.log('Answers.js rendered')
     // DESTRUCTURING
 
-    const {correct_answer, incorrect_answers, clickButton, answered} = this.props;
-    
+    const { correct_answer, incorrect_answers, clickButton, answered } = this.props;
+
     // FOR SHUFFLE BUTTONS
 
     let list = [];
@@ -52,24 +52,24 @@ export default class Answers extends React.Component {
 
     const shuffle = (array) => {
       var currentIndex = array.length, temporaryValue, randomIndex;
-    
+
       // While there remain elements to shuffle...
       while (0 !== currentIndex) {
-    
+
         // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-    
+
         // And swap it with the current element.
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
       }
-    
+
       return array;
     }
 
-    return(
+    return (
       <Card className="border-0 bg-light">
         <Row>
           {shuffle(list)}

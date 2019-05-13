@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import './Footer.css';
 
 export default class Footer extends React.Component {
   render() {
     return (
-      <Container>
+      <Container id="footer">
         <footer>
           <Row>
             <Col>

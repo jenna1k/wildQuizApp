@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
+import './SelectDifficulty.css'
 
 export default class SelectDifficulty extends React.Component {
   static defaultProps = {
     setDifficultyHandler: null,
     defaultLevel: "any",
-    defaultLevelText: "Any Difficulty",
-    levels: ["easy", "medium", "hard"]
+    defaultLevelText: "Any Difficulty"
   }
 
   static propTypes = {
@@ -28,33 +28,26 @@ export default class SelectDifficulty extends React.Component {
 
   selectLevelHandler(e) {
     this.setState({
-      selectedLevel: e.currentTarget.value
+      selectedLevel: e.currentTarget.id
     });
 
     if (this.props.setDifficultyHandler != null) {
-      this.props.setDifficultyHandler(e.target.value);
+      this.props.setDifficultyHandler(e.target.id);
     }
   }
 
   render() {
     return (
-      <FormGroup>
-        <Label for="selectDifficulty">Difficulty:</Label>
-        <Input id="selectDifficulty" type="select" name="select" onChange={this.selectLevelHandler}>
-          <option key={this.props.defaultLevelText}
-            value={this.props.defaultLevel}
-            onChange={this.selectLevelHandler}>
-            {this.props.defaultLevelText}
-          </option>
-          {this.props.levels.map((item) =>
-            <option key={item}
-              value={item}
-              onChange={this.selectLevelHandler}>
-              {item.substring(0, 1).toUpperCase() + item.substring(1)}
-            </option>)}
-        </Input>
-        <FormText>Choose the difficulty level of questions.</FormText>
-      </FormGroup>
-    );
+      <Container id="select-difficulty">
+        <div className="setting-text text-center">
+          <p>Select the difficulty level</p>
+          <Row>
+            <Col md={4}><Button className="difficulty-level" color="success" id='easy' onClick={this.selectLevelHandler}>Easy</Button></Col>
+            <Col md={4}><Button className="difficulty-level" color="primary" id='medium' onClick={this.selectLevelHandler}>Medium</Button></Col>
+            <Col md={4}><Button className="difficulty-level" color="danger" id='hard' onClick={this.selectLevelHandler}>Hard</Button></Col>
+          </Row>
+        </div>
+      </Container>
+    )
   }
 }
