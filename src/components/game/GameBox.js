@@ -8,7 +8,6 @@ import Answers from './Answers';
 import ProgressBar from './ProgressBar';
 
 const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress }) => {
-  console.log('GameBox.js rendered')
   // FOR DECODING
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
@@ -21,9 +20,6 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
       }}>Next</Button>
     )
   }
-
-  console.log('<GameBox>quiz=quizList[currentQuiz] : ', quiz)
-
 
   return (
     <Jumbotron fluid>

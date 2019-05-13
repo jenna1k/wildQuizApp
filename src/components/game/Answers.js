@@ -4,7 +4,6 @@ import { Card, Button, Row, Col } from 'reactstrap';
 export default class Answers extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate : if answered is true, do not update', nextProps, nextState)
     if (nextProps.answered) {  // if already answered, don't update
       return false;
     }
@@ -13,7 +12,6 @@ export default class Answers extends React.Component {
 
 
   render() {
-    console.log('Answers.js rendered')
     // DESTRUCTURING
 
     const { correct_answer, incorrect_answers, clickButton } = this.props;

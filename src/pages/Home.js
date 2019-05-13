@@ -27,7 +27,6 @@ export default class Home extends React.Component {
 
   clickButton(e, key) {
     const ans = document.querySelectorAll('#ans')
-    console.log('button clicked :', e.target, ans.length, ans[0].dataset.answer);
     var progress = Object.assign([], this.state.progress);
     if (key === 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
