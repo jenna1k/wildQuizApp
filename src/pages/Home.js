@@ -1,75 +1,104 @@
 import React from 'react';
+import { Container, Spinner } from 'reactstrap';
 import GameBox from '../components/game/GameBox';
 import GameSettings from '../components/game/GameSettings';
+import './Home.css';
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      mode: 'quiz', // 'customization', 'quiz', 'result'
-      quiz: {},
+      mode: 'customization', // 'customization', 'quiz', 'result'
+      quizList: [],
+      currentQuiz: 0,
       score: 0,
       answered: false,
-      progress: 0
+      progress: 0,
+      url: 'https://opentdb.com/api.php?amount=10&type=multiple',
+      loading: true
     };
 
     this.clickButton = this.clickButton.bind(this);
-    this.getAPI = this.getAPI.bind(this);
+    this.getData = this.getData.bind(this);
+    this.getURL = this.getURL.bind(this);
   }
 
   clickButton(e, key) {
     console.log('This button is :', e.target, 'and key is :', key);
-    
-    if (key == 0 && !this.state.answered) {
+
+    if (key === 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
-      this.setState(state => ({ score: state.score+10, answered: true }))
-      setTimeout( () => {
-        this.getAPI()
+      this.setState(state => ({ score: state.score + 10, answered: true, currentQuiz: this.state.currentQuiz + 1 }))
+      setTimeout(() => {
         this.setState(state => ({ answered: false }))
       }, 1000);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
-      this.setState(state => ({ answered: true }))
-      setTimeout( () => {
-        this.getAPI()
+      this.setState(state => ({ answered: true, currentQuiz: this.state.currentQuiz + 1 }))
+      setTimeout(() => {
         this.setState(state => ({ answered: false }))
       }, 1000);
     }
   };
 
-  getAPI(){
-    fetch("https://opentdb.com/api.php?amount=1&type=multiple")
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        quiz: data.results[0]
+  getData() {
+    fetch(this.state.url)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          quizList: data.results,
+          loading: false
+        })
       })
-    })
   }
-  
 
-  componentDidMount() {
-   this.getAPI();
+  getURL(url) {
+    this.setState({
+      url: url,
+      mode: 'quiz'
+    }, this.getData);
   }
+
+  // componentDidMount() {
+  //   this.getData();
+  // }
 
   render() {
+    var gamePhase;
+    switch (this.state.mode) {
+      case 'customization':
+        gamePhase = <GameSettings getURL={this.getURL} />;
+        break;
+      case 'quiz':
+        if (this.state.quizList.length > 0) {
+          gamePhase = <GameBox quiz={this.state.quizList[this.state.currentQuiz]} score={this.state.score} clickButton={this.clickButton} answered={this.state.answered} />;
+        } else {
+          gamePhase = null;
+        }
+        break;
+      case 'result':
+        gamePhase = <h1>result</h1>
+        break;
+      default:
+        gamePhase = <GameSettings />;
+        break;
+    }
 
-    const mode = this.state.mode
-
-    if (mode == 'customization') {
+    if (this.state.loading && this.state.mode === 'quiz') {
       return (
-        <div>
-          <GameSettings />
-        </div>
-      )
-    } else if (mode == 'quiz') {
-      return (
-        <div>
-          <GameSettings />
-          <GameBox quiz={this.state.quiz} score={this.state.score} clickButton={this.clickButton} answered={this.state.answered}/>
+        <div className="text-center">
+          <Spinner type="grow" />
+          <Spinner type="grow" />
+          <Spinner type="grow" />
         </div>
       )
     }
+
+    return (
+      <Container id="home">
+        {gamePhase}
+      </Container>
+    )
   }
 }
