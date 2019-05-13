@@ -20,10 +20,6 @@ export default class Home extends React.Component {
       loading: true
     };
 
-    console.log('<Home>quizList : ', this.state.quizList)
-    console.log('<Home>quizList[currentQuiz] : ', this.state.quizList[this.state.currentQuiz])
-
-
     this.clickButton = this.clickButton.bind(this);
     this.nextButton = this.nextButton.bind(this);
     this.getData = this.getData.bind(this);
@@ -40,7 +36,7 @@ export default class Home extends React.Component {
       this.setState(state => ({ score: state.score + 10, answered: true, progress: progress }))
       console.log("!!!" + this.state.progress);
       // setTimeout(() => {
-      //   this.setState(state => ({ answered: false }))
+      //   e.currentTarget.style.backgroundColor = 'info'
       // }, 500);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
@@ -56,7 +52,7 @@ export default class Home extends React.Component {
         }
       }, 300)
       // setTimeout(() => {
-      //   this.setState(state => ({ answered: false }))
+      //   e.currentTarget.style.backgroundColor = 'info'
       // }, 500);
     }
   };
@@ -66,9 +62,11 @@ export default class Home extends React.Component {
     console.log('nextButton clicked')
     const ans = document.querySelectorAll('#ans')
     for (let i = 0; i < ans.length; i++) {
-      ans[i].style.backgroundColor = "none";
+      ans[i].style.backgroundColor = "";
     }
-    this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+    setTimeout(() => {
+      this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+    }, 300)
   }
 
   getData() {
