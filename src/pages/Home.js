@@ -20,10 +20,6 @@ export default class Home extends React.Component {
       loading: true
     };
 
-    console.log('<Home>quizList : ', this.state.quizList)
-    console.log('<Home>quizList[currentQuiz] : ', this.state.quizList[this.state.currentQuiz])
-
-
     this.clickButton = this.clickButton.bind(this);
     this.nextButton = this.nextButton.bind(this);
     this.getData = this.getData.bind(this);
@@ -32,27 +28,27 @@ export default class Home extends React.Component {
 
   clickButton(e, key) {
     const ans = document.querySelectorAll('#ans')
-    console.log('button clicked :', e.target, ans.length, ans[0].dataset.answer);
+    console.log('answer button clicked :', e.currentTarget);
 
     if (key == 0 && !this.state.answered) {
-      e.target.style.backgroundColor = 'green';
+      e.currentTarget.style.backgroundColor = 'green';
       this.setState(state => ({ score: state.score + 10, answered: true }))
       // setTimeout(() => {
-      //   this.setState(state => ({ answered: false }))
+      //   e.currentTarget.style.backgroundColor = 'info'
       // }, 500);
     } else if (!this.state.answered) {
-      e.target.style.backgroundColor = 'red';
+      e.currentTarget.style.backgroundColor = 'red';
       this.setState(state => ({ answered: true }))
       // show right answer
       setTimeout( ()=>{
-        for (let i = 0; i < ans.length; i++){
+        for (let i = 0; i < ans.length; i++){   
           if(ans[i].dataset.answer == 'correct'){
             return ans[i].style.backgroundColor = "green";
           }
         }
       }, 300)
       // setTimeout(() => {
-      //   this.setState(state => ({ answered: false }))
+      //   e.currentTarget.style.backgroundColor = 'info'
       // }, 500);
     }
   };
@@ -62,9 +58,11 @@ export default class Home extends React.Component {
     console.log('nextButton clicked')
     const ans = document.querySelectorAll('#ans')
     for (let i = 0; i < ans.length; i++){
-      ans[i].style.backgroundColor = "none";
+      ans[i].style.backgroundColor = "";
     }
-    this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+    setTimeout(()=>{    
+      this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+  }, 300)
   }
 
   getData() {

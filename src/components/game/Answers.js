@@ -26,7 +26,7 @@ export default class Answers extends React.Component {
     for (let i = 0; i < answerList.length; i++){
       if (i == 0){  // correct_answer
         list.push(
-          <Col lg="6" sm="12">
+          <Col lg="6" sm="12" key={i}>
           <Button className="m-1" color="info" size="lg" block id="ans" key={i} data-answer="correct" 
           onClick={(e) => {
             e.preventDefault();
@@ -37,7 +37,7 @@ export default class Answers extends React.Component {
         )
       } else {  // incorrect_answers
         list.push(
-          <Col lg="6" sm="12">
+          <Col lg="6" sm="12" key={i}>
           <Button className="m-1" color="info" size="lg" block id="ans" key={i} data-answer="incorrect" 
           onClick={(e) => {
             e.preventDefault();
