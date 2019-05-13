@@ -7,10 +7,23 @@ import Question from './Question';
 import Answers from './Answers';
 import ProgressBar from './ProgressBar';
 
-const Gamebox = ({ quiz, score, clickButton, answered }) => {
-  
+const GameBox = ({ quiz, score, clickButton, answered, nextButton }) => {
+  console.log('GameBox.js rendered')  
   // FOR DECODING
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
+  const nextQuestionButton = [];
+  if(answered){
+    nextQuestionButton.push(
+      <Button color="danger" onClick={(e) => {
+        e.preventDefault();
+        nextButton(e);
+        }} >Next</Button>
+      )
+  }
+
+  console.log('<GameBox>quiz=quizList[currentQuiz] : ', quiz)
+
 
   return (
     <Jumbotron fluid>
@@ -28,8 +41,9 @@ const Gamebox = ({ quiz, score, clickButton, answered }) => {
             <Question question={renderHTML(quiz.question)} />
             <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers} clickButton={clickButton} answered={answered}/>
           </CardBody>
-          <CardFooter className="bg-dark">
+          <CardFooter className="bg-dark d-flex justify-content-between">
             <Button outline color="success" disabled>Score: {score}</Button>
+            {nextQuestionButton}
           </CardFooter>
         </Col>
       </Row>
@@ -37,4 +51,4 @@ const Gamebox = ({ quiz, score, clickButton, answered }) => {
   );
 }
 
-export default Gamebox;
+export default GameBox;

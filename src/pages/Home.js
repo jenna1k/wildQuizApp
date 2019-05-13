@@ -7,6 +7,7 @@ import './Home.css';
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
+    console.log('constructor')
 
     this.state = {
       mode: 'customization', // 'customization', 'quiz', 'result'
@@ -19,28 +20,52 @@ export default class Home extends React.Component {
       loading: true
     };
 
+    console.log('<Home>quizList : ', this.state.quizList)
+    console.log('<Home>quizList[currentQuiz] : ', this.state.quizList[this.state.currentQuiz])
+
+
     this.clickButton = this.clickButton.bind(this);
+    this.nextButton = this.nextButton.bind(this);
     this.getData = this.getData.bind(this);
     this.getURL = this.getURL.bind(this);
   }
 
   clickButton(e, key) {
-    console.log('This button is :', e.target, 'and key is :', key);
+    const ans = document.querySelectorAll('#ans')
+    console.log('button clicked :', e.target, ans.length, ans[0].dataset.answer);
 
-    if (key === 0 && !this.state.answered) {
+    if (key == 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
-      this.setState(state => ({ score: state.score + 10, answered: true, currentQuiz: this.state.currentQuiz + 1 }))
-      setTimeout(() => {
-        this.setState(state => ({ answered: false }))
-      }, 1000);
+      this.setState(state => ({ score: state.score + 10, answered: true }))
+      // setTimeout(() => {
+      //   this.setState(state => ({ answered: false }))
+      // }, 500);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
-      this.setState(state => ({ answered: true, currentQuiz: this.state.currentQuiz + 1 }))
-      setTimeout(() => {
-        this.setState(state => ({ answered: false }))
-      }, 1000);
+      this.setState(state => ({ answered: true }))
+      // show right answer
+      setTimeout( ()=>{
+        for (let i = 0; i < ans.length; i++){
+          if(ans[i].dataset.answer == 'correct'){
+            return ans[i].style.backgroundColor = "green";
+          }
+        }
+      }, 300)
+      // setTimeout(() => {
+      //   this.setState(state => ({ answered: false }))
+      // }, 500);
     }
   };
+
+  nextButton(){
+    // this.getAPI()
+    console.log('nextButton clicked')
+    const ans = document.querySelectorAll('#ans')
+    for (let i = 0; i < ans.length; i++){
+      ans[i].style.backgroundColor = "none";
+    }
+    this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+  }
 
   getData() {
     fetch(this.state.url)
@@ -72,7 +97,7 @@ export default class Home extends React.Component {
         break;
       case 'quiz':
         if (this.state.quizList.length > 0) {
-          gamePhase = <GameBox quiz={this.state.quizList[this.state.currentQuiz]} score={this.state.score} clickButton={this.clickButton} answered={this.state.answered} />;
+          gamePhase = <GameBox quiz={this.state.quizList[this.state.currentQuiz]} score={this.state.score} clickButton={this.clickButton} nextButton={this.nextButton} answered={this.state.answered} />;
         } else {
           gamePhase = null;
         }
