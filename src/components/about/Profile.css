@@ -24,7 +24,8 @@
     justify-content: space-around;
   }
 .social {
-  display: inline;
+  display: flex;
+  justify-content: space-around;
   font-size: 2em;
 }
 

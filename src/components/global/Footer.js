@@ -1,19 +1,10 @@
-import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 
-export default class Footer extends React.Component {
-  render() {
-    return (
-      <Container id="footer">
-        <footer>
-          <Row>
-            <Col>
-              <p className="align-self-center">Wild Code School &copy; 2019</p>
-            </Col>
-          </Row>
-        </footer>
-      </Container>
-    );
-  }
-}
+const Footer = () => (
+  <footer className="footer">
+    <p>Made with <i class="fas fa-heart"></i> & <i class="fas fa-coffee"></i> by <a href="https://odyssey.wildcodeschool.com/?locale=en" target="_blank" class="link color-inherit hover-white">Wild</a> girls</p>
+  </footer>
+);
+
+export default Footer;
