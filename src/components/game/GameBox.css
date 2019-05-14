@@ -6,6 +6,10 @@
     box-shadow: 5px 5px 0 #fff, 10px 10px 0 rgba(0,0,0,0.2);
 }
 
+._btn {
+    border: 0px !important;
+}
+
 ._Num {
     display: inline;
 }

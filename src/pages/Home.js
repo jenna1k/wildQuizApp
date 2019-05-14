@@ -30,18 +30,18 @@ export default class Home extends React.Component {
     const ans = document.querySelectorAll('#ans')
     var progress = Object.assign([], this.state.progress);
     if (key === 0 && !this.state.answered) {
-      e.target.style.backgroundColor = 'green';
+      e.target.style.backgroundColor = '#fdcc3b';
       progress.push(true);
       this.setState(state => ({ score: state.score + 10, answered: true, progress: progress, comment: 'good job!' }))
     } else if (!this.state.answered) {
-      e.target.style.backgroundColor = 'red';
+      e.target.style.backgroundColor = '#6a737b';
       progress.push(false);
       this.setState(state => ({ answered: true, progress: progress, comment: 'oopsy!' }))
       // show right answer
       setTimeout(() => {
         for (let i = 0; i < ans.length; i++) {
           if (ans[i].dataset.answer === 'correct') {
-            return ans[i].style.backgroundColor = "green";
+            return ans[i].style.backgroundColor = "#fdcc3b";
           }
         }
       }, 300)
@@ -51,7 +51,7 @@ export default class Home extends React.Component {
   nextButton() {
     const ans = document.querySelectorAll('#ans')
     for (let i = 0; i < ans.length; i++) {
-      ans[i].style.backgroundColor = "";
+      ans[i].style.backgroundColor = "#3cc3b2";
     }
     setTimeout(() => {
       if (this.state.currentQuiz !== this.state.quizList.length - 1) {
