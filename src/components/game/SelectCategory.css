@@ -4,6 +4,7 @@ div.setting-text {
 
 div.card-columns.categories{
   padding-right: 40px;
+  padding-bottom: 80px;
 }
 
 a.category-card {
@@ -36,7 +37,6 @@ div.category:hover {
   box-shadow: 2px 2px 2px 0px rgba(83, 238, 255, 0.831);
   background-color: #3bfdfd;
 }
-
 
 @media only screen and (max-width: 576px) {  
   div.card-columns.categories {

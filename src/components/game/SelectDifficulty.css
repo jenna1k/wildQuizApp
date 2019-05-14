@@ -4,3 +4,12 @@ button.btn.difficulty-level {
   width: 200px;
   border-radius: 30px;
 }
+
+div.setting-text {
+  padding-top: 1.5rem;
+}
+
+div.difficulty {
+  padding-bottom: 80px;
+  padding-top: 50px;
+}

@@ -1,4 +1,12 @@
 /* spinner color */
 div.spinner-grow {
-  color: #fd3b9c!important;
+  color: #fd3b9c !important;
+}
+
+div.spinners {    
+  padding-top: 200px;
+}
+
+html, body, div#root{
+  height: 100%
 }

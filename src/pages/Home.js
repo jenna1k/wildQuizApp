@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Spinner } from 'reactstrap';
 import GameBox from '../components/game/GameBox';
 import GameSettings from '../components/game/GameSettings';
+import Results from '../components/game/Results';
 import './Home.css';
 
 export default class Home extends React.Component {
@@ -23,6 +24,7 @@ export default class Home extends React.Component {
     this.nextButton = this.nextButton.bind(this);
     this.getData = this.getData.bind(this);
     this.getURL = this.getURL.bind(this);
+    this.tryAgain = this.tryAgain.bind(this);
   }
 
   clickButton(e, key) {
@@ -85,6 +87,19 @@ export default class Home extends React.Component {
     }, this.getData);
   }
 
+  tryAgain() {
+    this.setState({
+      mode: 'customization',
+      quizList: [],
+      currentQuiz: 0,
+      score: 0,
+      answered: false,
+      progress: {},
+      url: 'https://opentdb.com/api.php?amount=10&type=multiple',
+      loading: true
+    })
+  }
+
   render() {
     var gamePhase;
     switch (this.state.mode) {
@@ -106,7 +121,7 @@ export default class Home extends React.Component {
         }
         break;
       case 'result':
-        gamePhase = <h1 className="text-center">Your score: {this.state.score} points</h1>
+        gamePhase = <Results again={this.tryAgain} score={this.state.score} />
         break;
       default:
         gamePhase = <GameSettings />;
@@ -115,7 +130,7 @@ export default class Home extends React.Component {
 
     if (this.state.loading && this.state.mode === 'quiz') {
       return (
-        <div className="text-center">
+        <div className="text-center spinners">
           <Spinner type="grow" />
           <Spinner type="grow" />
           <Spinner type="grow" />
