@@ -1,0 +1,16 @@
+.carousel-custom {
+    color: aquamarine;
+    background-color: red;
+}
+
+/*.carousel-custom .carousel-inner {
+  max-height: 70vh;
+  overflow: hidden;
+  height: 700px !important;   
+}
+*/
+.carousel-custom .carousel-inner img {
+  object-fit: fill !important;
+  width: 100% !important;
+  height: auto;
+}
