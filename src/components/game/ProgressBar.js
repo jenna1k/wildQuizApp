@@ -1,5 +1,6 @@
 import React from 'react';
 import { Progress } from 'reactstrap';
+import './GameBox.css';
 
 const ProgressBar = ({ amount, progress }) => {
   var progressBarElements = [];
@@ -8,7 +9,7 @@ const ProgressBar = ({ amount, progress }) => {
 
   for (var answer = 0; answer < progress.length; answer++) {
     progressBarElements.push(
-      <Progress key={answer} bar color={progress[answer] ? "success" : "danger"} value={progressValue} />
+      <Progress key={answer} bar className={progress[answer] ? '_Progress_O' : '_Progress_X'} value={progressValue} />
     );
   }
   return (
