@@ -1,9 +1,6 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './Carousel.css';
 import {StaggeredMotion, spring} from "react-motion";
-import { Card, CardImg, CardColumns, CardText, CardDeck,
-  CardSubtitle, CardBody } from 'reactstrap';
 
 class ViewSlide extends React.Component {
     constructor(props) {
