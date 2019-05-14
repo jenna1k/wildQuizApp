@@ -3,11 +3,12 @@ import {
   Jumbotron, Button, CardTitle, CardText, CardBody,
   CardHeader, CardFooter, Row, Col
 } from 'reactstrap';
+import './GameBox.css';
 import Question from './Question';
 import Answers from './Answers';
 import ProgressBar from './ProgressBar';
 
-const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress, currentQuiz }) => {
+const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress, currentQuiz}) => {
   // FOR DECODING
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
@@ -15,14 +16,14 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
   if (answered) {
     if (amount == (currentQuiz+1)){
       nextQuestionButton.push(
-        <Button key="next" color="danger" onClick={(e) => {
+        <Button key="next" className="_Next" size="lg" onClick={(e) => {
           e.preventDefault();
           nextButton(e);
         }}>Finish</Button>
       )
     } else {
       nextQuestionButton.push(
-        <Button key="next" color="danger" onClick={(e) => {
+        <Button key="next" className="_Next" size="lg" onClick={(e) => {
           e.preventDefault();
           nextButton(e);
         }}>Next</Button>
@@ -31,11 +32,14 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
   }
 
   return (
-    <Jumbotron fluid>
+    <div className="Jumbo-container p-5">
       <Row className="d-flex justify-content-center">
-        <Col sm="6">
-          <CardHeader tag="h3" className="bg-dark">
-            <CardTitle className="text-white d-flex justify-content-center">Solve quizes from 6 categories!</CardTitle>
+        <Col className="Box-container" lg="6" md="8" sm="8">
+          <CardHeader tag="h3" className="_Card">
+            <CardTitle className="text-white d-flex justify-content-between">
+              <Button size="md" color="light" className="m-1 d-inline" active outline disabled><h1 className="_Num"> {currentQuiz + 1} </h1>/ {amount} </Button>
+              <Button color="light" active outline disabled>Score: <h1 className="_Num">{score}</h1></Button>
+            </CardTitle>
           </CardHeader>
           <ProgressBar amount={amount} progress={progress} />
           <CardBody className="bg-light">
@@ -46,13 +50,13 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
             <Question question={renderHTML(quiz.question)} />
             <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers} clickButton={clickButton} answered={answered} />
           </CardBody>
-          <CardFooter className="bg-dark d-flex justify-content-between">
-            <Button outline color="success" disabled>Score: {score}</Button>
+          <CardFooter className="_Card d-flex flex-row-reverse">
             {nextQuestionButton}
+            <Button style={{visibility: 'hidden'}}>a</Button>
           </CardFooter>
         </Col>
       </Row>
-    </Jumbotron>
+    </div>
   );
 }
 

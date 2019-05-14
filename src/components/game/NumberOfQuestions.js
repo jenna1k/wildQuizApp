@@ -56,7 +56,7 @@ export default class NumberOfQuestions extends React.Component {
   render() {
     return (
       <Container id="select-amount" className="text-center">
-        <FormGroup id="select-amount">
+        <FormGroup>
           <Label for="number-of-questions" className="setting-text text-center">Number of questions:</Label>
           <Input id="number-of-questions"
             type="number"
