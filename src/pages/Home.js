@@ -16,7 +16,8 @@ export default class Home extends React.Component {
       answered: false,
       progress: {},
       url: 'https://opentdb.com/api.php?amount=10&type=multiple',
-      loading: true
+      loading: true,
+      comment: 'Start !'
     };
 
     this.clickButton = this.clickButton.bind(this);
@@ -31,14 +32,14 @@ export default class Home extends React.Component {
     if (key === 0 && !this.state.answered) {
       e.target.style.backgroundColor = 'green';
       progress.push(true);
-      this.setState(state => ({ score: state.score + 10, answered: true, progress: progress }))
+      this.setState(state => ({ score: state.score + 10, answered: true, progress: progress, comment: 'good job!' }))
       // setTimeout(() => {
       //   e.currentTarget.style.backgroundColor = 'info'
       // }, 500);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
       progress.push(false);
-      this.setState(state => ({ answered: true, progress: progress }))
+      this.setState(state => ({ answered: true, progress: progress, comment: 'oopsy!' }))
       // show right answer
       setTimeout(() => {
         for (let i = 0; i < ans.length; i++) {
@@ -100,7 +101,8 @@ export default class Home extends React.Component {
             nextButton={this.nextButton}
             answered={this.state.answered}
             progress={this.state.progress}
-            amount={this.state.quizList.length} />;
+            amount={this.state.quizList.length}
+            comment={this.state.comment} />;
         } else {
           gamePhase = null;
         }

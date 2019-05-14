@@ -7,7 +7,7 @@ import Question from './Question';
 import Answers from './Answers';
 import ProgressBar from './ProgressBar';
 
-const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress }) => {
+const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress, comment }) => {
   // FOR DECODING
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
@@ -26,7 +26,7 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
       <Row className="d-flex justify-content-center">
         <Col sm="6">
           <CardHeader tag="h3" className="bg-dark">
-            <CardTitle className="text-white d-flex justify-content-center">Solve quizes from 6 categories!</CardTitle>
+            <CardTitle className="text-white d-flex justify-content-center">{comment}</CardTitle>
           </CardHeader>
           <ProgressBar amount={amount} progress={progress} />
           <CardBody className="bg-light">
@@ -38,7 +38,7 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
             <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers} clickButton={clickButton} answered={answered} />
           </CardBody>
           <CardFooter className="bg-dark d-flex justify-content-between">
-            <Button outline color="success" disabled>Score: {score}</Button>
+            <Button color="success">Score: {score}</Button>
             {nextQuestionButton}
           </CardFooter>
         </Col>
