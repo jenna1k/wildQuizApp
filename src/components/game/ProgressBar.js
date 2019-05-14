@@ -1,16 +1,18 @@
 import React from 'react';
 import { Progress } from 'reactstrap';
 
-const ProgressBar = ({question})=> {
-  return(
-    <Progress multi>
-      <Progress bar color="pink" value="17" />
-      <Progress bar color="success" value="17" />
-      <Progress bar color="info" value="17" />
-      <Progress bar color="warning" value="17" />
-      <Progress bar color="secondary" value="17" />
-      <Progress bar color="danger" value="17" />
-    </Progress>
+const ProgressBar = ({ amount, progress }) => {
+  var progressBarElements = [];
+
+  var progressValue = 100 / amount;
+
+  for (var answer = 0; answer < progress.length; answer++) {
+    progressBarElements.push(
+      <Progress key={answer} bar color={progress[answer] ? "success" : "danger"} value={progressValue} />
+    );
+  }
+  return (
+    <Progress multi>{progressBarElements}</Progress>
   )
 }
 
