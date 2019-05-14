@@ -41,7 +41,7 @@ export default class SelectDifficulty extends React.Component {
       <Container id="select-difficulty">
         <div className="setting-text text-center">
           <p>Select the difficulty level</p>
-          <Row>
+          <Row className="difficulty">
             <Col md={4}><Button className="difficulty-level" color="success" id='easy' onClick={this.selectLevelHandler}>Easy</Button></Col>
             <Col md={4}><Button className="difficulty-level" color="primary" id='medium' onClick={this.selectLevelHandler}>Medium</Button></Col>
             <Col md={4}><Button className="difficulty-level" color="danger" id='hard' onClick={this.selectLevelHandler}>Hard</Button></Col>

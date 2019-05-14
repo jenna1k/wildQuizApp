@@ -65,7 +65,7 @@ export default class SelectCategory extends React.Component {
     var categoryId = "category-";
     if (this.state.loading) {
       return (
-        <div className="text-center">
+        <div className="text-center spinners">
           <Spinner type="grow" />
           <Spinner type="grow" />
           <Spinner type="grow" />

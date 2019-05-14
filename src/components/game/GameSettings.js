@@ -105,10 +105,12 @@ export default class GameSettings extends React.Component {
     var gameSettings;
     switch (this.state.gameSetting) {
       case 'default':
-        gameSettings = <Container className="text-center">
-          <h1>Welcome to Wild Quiz</h1>
-          <Button className="game" color="success" size="lg" onClick={this.generateAPIRequestURL}>Play</Button>
-          <Button className="game" color="success" size="lg" onClick={this.customizeGame}>Custom Game</Button>
+        gameSettings = <Container className="welcome">
+          <p className="welcome">Welcome to Wild Quiz</p>
+          <div className="game">
+            <Button className="game" color="success" size="lg" onClick={this.generateAPIRequestURL}>Play</Button>
+            <Button className="game" color="success" size="lg" onClick={this.customizeGame}>Custom Game</Button>
+          </div>
         </Container>
         break;
 
@@ -121,7 +123,7 @@ export default class GameSettings extends React.Component {
         break;
 
       case 'selectAmount':
-        gameSettings = <div className="text-center">
+        gameSettings = <div className="selectAmount">
           <NumberOfQuestions setAmountHandler={this.setAmountHandler} maxCount={this.state.availableQuestions} />
           <Button className="game" size="lg" color="success" onClick={this.generateAPIRequestURL}>Play</Button>
         </div>
@@ -133,7 +135,7 @@ export default class GameSettings extends React.Component {
     }
 
     return (
-      <div className="game-settings">
+      <div className="game-settings text-center">
         {gameSettings}
       </div>
     )

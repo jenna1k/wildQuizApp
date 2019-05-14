@@ -12,3 +12,7 @@ label.setting-text {
 .form-text {
   font-size: 1.2rem;
 }
+
+label.setting-text{
+  padding-top: 1.5rem;
+}

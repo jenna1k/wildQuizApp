@@ -1,3 +1,14 @@
 div#footer {
   bottom: 0;
+  height: 50px;
+  background-color: #fd3b9c;
+  text-align: center;
+  color: #ffffff;
+  max-width: 100%;
+}
+
+div#footer  p {
+  padding: 12px;  
+  font-family: 'Quicksand', 'Jura', sans-serif;
+  font-size: 18px;
 }
