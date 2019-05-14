@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button, Row, Col } from 'reactstrap';
+import './GameBox.css';
 
 export default class Answers extends React.Component {
 
