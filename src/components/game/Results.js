@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Button } from 'reactstrap';
 import './Results.css';
 
-
 export default class Results extends React.Component {
   constructor(props) {
     super(props);

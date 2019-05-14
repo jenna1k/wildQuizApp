@@ -1,8 +1,7 @@
-import React from "react";
-import "./Profile.css";
+import React from 'react';
+import './Profile.css';
 import {
   Card,
-  Button,
   CardImg,
   CardTitle,
   CardText,
@@ -10,7 +9,7 @@ import {
   CardSubtitle,
   CardBody,
   Jumbotron
-} from "reactstrap";
+} from 'reactstrap';
 
 const Profiles = props => {
   return (
@@ -106,10 +105,10 @@ const Profiles = props => {
               <a href="https://github.com/jenna1k">
                 <i class="fab fa-github" />
                 <a href="https://github.com/jenna1k">
-                  <i class="fab fa-twitter-square"></i> 
+                  <i class="fab fa-twitter-square"></i>
                 </a>
                 <a href="https://github.com/jenna1k">
-                 <i class="fab fa-linkedin"></i>
+                  <i class="fab fa-linkedin"></i>
                 </a>
               </a>
             </CardText>

@@ -1,5 +1,5 @@
 import React from "react";
-import { UncontrolledCarousel, Jumbotron } from "reactstrap";
+import { UncontrolledCarousel } from "reactstrap";
 import "./Carousel.css";
 
 const items = [
@@ -34,4 +34,3 @@ const Carousel = () => (
 );
 
 export default Carousel;
-
