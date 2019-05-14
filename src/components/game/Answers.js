@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button, Row, Col } from 'reactstrap';
+import './GameBox.css';
 
 export default class Answers extends React.Component {
 
@@ -25,7 +26,7 @@ export default class Answers extends React.Component {
       if (i === 0) {  // correct_answer
         list.push(
           <Col lg="6" sm="12" key={i}>
-            <Button className="m-1" color="info" size="lg" block id="ans" key={i} data-answer="correct"
+            <Button className="m-1 _btn" style={{backgroundColor: '#3cc3b2'}} size="lg" block id="ans" key={i} data-answer="correct"
               onClick={(e) => {
                 e.preventDefault();
                 clickButton(e, i);
@@ -36,7 +37,7 @@ export default class Answers extends React.Component {
       } else {  // incorrect_answers
         list.push(
           <Col lg="6" sm="12" key={i}>
-            <Button className="m-1" color="info" size="lg" block id="ans" key={i} data-answer="incorrect"
+            <Button className="m-1 _btn" style={{backgroundColor: '#3cc3b2'}} size="lg" block id="ans" key={i} data-answer="incorrect"
               onClick={(e) => {
                 e.preventDefault();
                 clickButton(e, i);

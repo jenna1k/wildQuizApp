@@ -18,7 +18,7 @@ export default class Home extends React.Component {
       progress: {},
       url: 'https://opentdb.com/api.php?amount=10&type=multiple',
       loading: true
-    };
+      };
 
     this.clickButton = this.clickButton.bind(this);
     this.nextButton = this.nextButton.bind(this);
@@ -31,38 +31,32 @@ export default class Home extends React.Component {
     const ans = document.querySelectorAll('#ans')
     var progress = Object.assign([], this.state.progress);
     if (key === 0 && !this.state.answered) {
-      e.target.style.backgroundColor = 'green';
+      e.target.style.backgroundColor = '#fdcc3b';
       progress.push(true);
-      this.setState(state => ({ score: state.score + 10, answered: true, progress: progress }))
-      // setTimeout(() => {
-      //   e.currentTarget.style.backgroundColor = 'info'
-      // }, 500);
+      this.setState(state => ({ score: state.score + 10, answered: true, progress: progress}))
     } else if (!this.state.answered) {
-      e.target.style.backgroundColor = 'red';
+      e.target.style.backgroundColor = '#6a737b';
       progress.push(false);
-      this.setState(state => ({ answered: true, progress: progress }))
+      this.setState(state => ({ answered: true, progress: progress}))
       // show right answer
       setTimeout(() => {
         for (let i = 0; i < ans.length; i++) {
           if (ans[i].dataset.answer === 'correct') {
-            return ans[i].style.backgroundColor = "green";
+            return ans[i].style.backgroundColor = "#fdcc3b";
           }
         }
       }, 300)
-      // setTimeout(() => {
-      //   e.currentTarget.style.backgroundColor = 'info'
-      // }, 500);
     }
   };
 
   nextButton() {
     const ans = document.querySelectorAll('#ans')
     for (let i = 0; i < ans.length; i++) {
-      ans[i].style.backgroundColor = "";
+      ans[i].style.backgroundColor = "#3cc3b2";
     }
     setTimeout(() => {
       if (this.state.currentQuiz !== this.state.quizList.length - 1) {
-        this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+        this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1}))
       } else {
         this.setState(state => ({ answered: false, mode: 'result' }))
       }
@@ -115,7 +109,8 @@ export default class Home extends React.Component {
             nextButton={this.nextButton}
             answered={this.state.answered}
             progress={this.state.progress}
-            amount={this.state.quizList.length} />;
+            amount={this.state.quizList.length}
+            currentQuiz={this.state.currentQuiz} />;
         } else {
           gamePhase = null;
         }
