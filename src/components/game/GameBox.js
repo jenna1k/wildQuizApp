@@ -8,7 +8,7 @@ import Question from './Question';
 import Answers from './Answers';
 import ProgressBar from './ProgressBar';
 
-const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress, currentQuiz, comment }) => {
+const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress, currentQuiz}) => {
   // FOR DECODING
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
