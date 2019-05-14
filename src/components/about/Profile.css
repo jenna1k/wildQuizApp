@@ -75,3 +75,10 @@ https: //bootsnipp.com/snippets/or33d */
     background: red;
   }
 }
+
+.Profile_content {
+  min-height: calc(100vh - 50px);
+  background: rgb(220, 243, 119);
+  border:1px solid transparent;
+} 
+}
