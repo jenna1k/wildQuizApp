@@ -17,7 +17,7 @@ export default class Home extends React.Component {
       progress: {},
       url: 'https://opentdb.com/api.php?amount=10&type=multiple',
       loading: true,
-      comment: 'Start !'
+      comment: 'Solve the question !'
     };
 
     this.clickButton = this.clickButton.bind(this);
@@ -33,9 +33,6 @@ export default class Home extends React.Component {
       e.target.style.backgroundColor = 'green';
       progress.push(true);
       this.setState(state => ({ score: state.score + 10, answered: true, progress: progress, comment: 'good job!' }))
-      // setTimeout(() => {
-      //   e.currentTarget.style.backgroundColor = 'info'
-      // }, 500);
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = 'red';
       progress.push(false);
@@ -48,9 +45,6 @@ export default class Home extends React.Component {
           }
         }
       }, 300)
-      // setTimeout(() => {
-      //   e.currentTarget.style.backgroundColor = 'info'
-      // }, 500);
     }
   };
 
@@ -61,7 +55,7 @@ export default class Home extends React.Component {
     }
     setTimeout(() => {
       if (this.state.currentQuiz !== this.state.quizList.length - 1) {
-        this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
+        this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1, comment: "Solve the question !" }))
       } else {
         this.setState(state => ({ answered: false, mode: 'result' }))
       }
@@ -102,7 +96,8 @@ export default class Home extends React.Component {
             answered={this.state.answered}
             progress={this.state.progress}
             amount={this.state.quizList.length}
-            comment={this.state.comment} />;
+            comment={this.state.comment}
+            currentQuiz={this.state.currentQuiz} />;
         } else {
           gamePhase = null;
         }
