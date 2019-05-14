@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="content">
+        <div className="">
           <Header />
           <Route exact path={'/'} component={Home} />
 

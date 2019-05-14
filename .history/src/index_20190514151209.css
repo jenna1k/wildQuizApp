@@ -26,12 +26,11 @@ html, body {
   margin: 0;
 }
 
-#root {
-  height: 100%;
+.content {
+  min-height: calc(100vh - 70px);
 }
 
-.content {
-  min-height: calc(100vh - 50px);
-  background: rgb(220, 243, 119);
-  border:1px solid transparent;
+.footer {
+  height: 50px;
+  margin-top: -50px;
 }

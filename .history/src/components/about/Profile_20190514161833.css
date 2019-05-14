@@ -72,6 +72,6 @@ https: //bootsnipp.com/snippets/or33d */
 
 @media only screen and (max-width: 769px) {
   .jumbotron {
-    background: red;
+    background: red !important;
   }
 }
