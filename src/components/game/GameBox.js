@@ -7,18 +7,27 @@ import Question from './Question';
 import Answers from './Answers';
 import ProgressBar from './ProgressBar';
 
-const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress }) => {
+const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progress, currentQuiz }) => {
   // FOR DECODING
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
   const nextQuestionButton = [];
   if (answered) {
-    nextQuestionButton.push(
-      <Button key="next" color="danger" onClick={(e) => {
-        e.preventDefault();
-        nextButton(e);
-      }}>Next</Button>
-    )
+    if (amount == (currentQuiz+1)){
+      nextQuestionButton.push(
+        <Button key="next" color="danger" onClick={(e) => {
+          e.preventDefault();
+          nextButton(e);
+        }}>Finish</Button>
+      )
+    } else {
+      nextQuestionButton.push(
+        <Button key="next" color="danger" onClick={(e) => {
+          e.preventDefault();
+          nextButton(e);
+        }}>Next</Button>
+      )  
+    }
   }
 
   return (

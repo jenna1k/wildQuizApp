@@ -100,7 +100,8 @@ export default class Home extends React.Component {
             nextButton={this.nextButton}
             answered={this.state.answered}
             progress={this.state.progress}
-            amount={this.state.quizList.length} />;
+            amount={this.state.quizList.length}
+            currentQuiz={this.state.currentQuiz} />;
         } else {
           gamePhase = null;
         }
