@@ -32,7 +32,7 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
   }
 
   return (
-    <div className="Jumbo-container p-1">
+    <div className="Jumbo-container p-5">
       <Row className="d-flex justify-content-center">
         <Col className="box-container" xl="8" lg="8" md="10" sm="10" xs="12">
           <CardHeader tag="h3" className="card">

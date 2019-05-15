@@ -68,7 +68,6 @@ export default class Answers extends React.Component {
       <Card className="border-0 bg-light">
         <Row>
           {shuffle(list)}
-          Correct: {correct_answer}
         </Row>
       </Card>
     )

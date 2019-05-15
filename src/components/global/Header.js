@@ -44,7 +44,7 @@ export default class Header extends React.Component {
                 <RouterLink exact to="/home" onClick={this.closeNavbar}>Home</RouterLink>
               </NavItem>
               <NavItem>
-                <RouterLink to="/how_to_play" onClick={this.closeNavbar}>How to play</RouterLink>
+                <RouterLink to="/how_we_built" onClick={this.closeNavbar}>How we built</RouterLink>
               </NavItem>
               <NavItem>
                 <RouterLink to="/about" onClick={this.closeNavbar}>About</RouterLink>

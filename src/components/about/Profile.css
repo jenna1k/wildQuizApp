@@ -1,14 +1,15 @@
 div#profile {
   max-width: 100% !important;
+  background: -webkit-linear-gradient(110deg, #fdcd3b 50%, #ffed4b 60%);
+  background: -o-linear-gradient(110deg, #fdcd3b 50%, #ffed4b 60%);
+  background: -moz-linear-gradient(110deg, hsl(45, 98%, 61%) 50%, #ffed4b 60%);
+  background: linear-gradient(110deg, #fdcd3b 50%, #ffed4b 60%);  
   height: auto;
   min-height: 100%;
-  background: -webkit-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-  background: -o-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-  background: -moz-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 }
 
-div.row {
+
+div.row#profiles {
   padding-top: 80px;
   padding-bottom: 40px;
 }

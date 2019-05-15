@@ -15,7 +15,7 @@ import {
 const Profiles = props => {
   return (
     <Container id="profile">
-      <Row>
+      <Row id="profiles">
         <Col lg="4">
           <Card body>
             <CardImg
@@ -28,9 +28,7 @@ const Profiles = props => {
               <CardTitle>Dajung Kim</CardTitle>
               <CardSubtitle><em>former accountant</em></CardSubtitle>
               <CardText className="description">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content.This content is a little bit nkjgkjg
-                longer vmvvmmmvmnvmmnvmvmn.
+
               </CardText>
               <CardText className="social">
                 <a href="https://github.com/jenna1k" target="_blank" rel="noopener noreferrer" >
@@ -59,15 +57,13 @@ const Profiles = props => {
               <CardTitle>Anastasiya Aliashkevich</CardTitle>
               <CardSubtitle><em>former QA</em></CardSubtitle>
               <CardText className="description">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content.This content is a little bit nkjgkjg
-                longer vmvvmmmvmnvmmnvmvmn.
+                My name is Anastasiya and I'm from Belarus - a country with economy and national idea being potato. I like to solve puzzles, code stuff and also I love computer games.
               </CardText>
               <CardText className="social">
                 <a href="https://github.com/aliashkevich" target="_blank" rel="noopener noreferrer" >
                   <i className="fab fa-github" />
                 </a>
-                <a href="https://github.com/jenna1k" target="_blank" rel="noopener noreferrer" >
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" >
                   <i className="fab fa-twitter-square" />
                 </a>
                 <a href="https://www.linkedin.com/in/anastasiya-aliashkevich-941091a0/" target="_blank" rel="noopener noreferrer" >
@@ -90,17 +86,16 @@ const Profiles = props => {
               <CardTitle>Bernadetta Nycz</CardTitle>
               <CardSubtitle><em>former stylist</em></CardSubtitle>
               <CardText className="description">
-                This card has even longer content than the first to show that
-                equal height action.
+                I’m Bernadetta, currently on the journey to translate my love for art, fashion and tech into digital reality. I enjoy sun, skateboarding and expresso.
               </CardText>
               <CardText className="social">
-                <a href="https://github.com/jenna1k" target="_blank" rel="noopener noreferrer" >
+                <a href="https://github.com/Hiiiij" target="_blank" rel="noopener noreferrer" >
                   <i className="fab fa-github" />
                 </a>
-                <a href="https://github.com/jenna1k" target="_blank" rel="noopener noreferrer" >
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" >
                   <i className="fab fa-twitter-square"></i>
                 </a>
-                <a href="https://github.com/jenna1k" target="_blank" rel="noopener noreferrer" >
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" >
                   <i className="fab fa-linkedin"></i>
                 </a>
               </CardText>
