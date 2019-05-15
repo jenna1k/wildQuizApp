@@ -75,7 +75,7 @@ class ViewSlider extends React.Component {
           triggers: 0,
           x: 300,
           content: (
-            <h1>... and with lots of <i class="fas fa-heart"></i> & <i class="fas fa-coffee"></i></h1>
+            <h1>... and with lots of <i className="fas fa-heart"></i> & <i className="fas fa-coffee"></i></h1>
           )
         },
         {
@@ -125,7 +125,7 @@ class ViewSlider extends React.Component {
                 >
                   <Container className="ppt_container">
                     <h1>{slide.content}</h1>
-                    <Button className="circle-button _smBtn" onClick={this.setActiveSlide.bind(this, slide.triggers)}> <i class="fas fa-angle-double-right"></i> </Button>
+                    <Button className="circle-button _smBtn" onClick={this.setActiveSlide.bind(this, slide.triggers)}> <i className="fas fa-angle-double-right"></i> </Button>
                   </Container>
                 </ViewSlide>
               )

@@ -26,11 +26,12 @@ export default class WireFrameSm extends React.Component {
           <ModalBody onClick={this.toggle} className="modal_wrapper">
             <div className="container d-flex justify-content-center">
                 <div className="row">
-                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img src="https://files.slack.com/files-pri/T6SG2QGG2-FJRTJ6NQP/screen_shot_2019-05-15_at_12.14.14.png"/></div>
-                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img src="https://files.slack.com/files-pri/T6SG2QGG2-FJRTJ6NQP/screen_shot_2019-05-15_at_12.14.14.png"/></div>
-                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img src="https://files.slack.com/files-pri/T6SG2QGG2-FJRTJ6NQP/screen_shot_2019-05-15_at_12.14.14.png"/></div>
-                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img src="https://files.slack.com/files-pri/T6SG2QGG2-FJRTJ6NQP/screen_shot_2019-05-15_at_12.14.14.png"/></div>
-                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img src="https://files.slack.com/files-pri/T6SG2QGG2-FJRTJ6NQP/screen_shot_2019-05-15_at_12.14.14.png"/></div>
+                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJCQ9BLV9/screen_shot_2019-05-15_at_15.02.34.png" alt="wireframe for mobile"/></div>
+                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJPMYRYUC/screen_shot_2019-05-15_at_15.03.15.png" alt="wireframe for mobile"/></div>
+                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJSD08C06/screen_shot_2019-05-15_at_15.04.02.png" alt="wireframe for mobile"/></div>
+                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJCQYTC2E/screen_shot_2019-05-15_at_15.04.22.png" alt="wireframe for mobile"/></div>
+                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJCQ9BPFV/screen_shot_2019-05-15_at_15.04.51.png" alt="wireframe for mobile"/></div>
+                    <div className="col-lg-3 col-md-4 col-sm-6 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJCQ9BPFV/screen_shot_2019-05-15_at_15.04.51.png" alt="wireframe for mobile"/></div>
                 </div>
             </div>
           </ModalBody>
