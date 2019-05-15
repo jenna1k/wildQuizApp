@@ -1,11 +1,11 @@
 import React from 'react';
-import Slides from '../components/rules/Slides';
+import ViewSlider from '../components/rules/ViewSlider';
 
 export default class Rules extends React.Component {
   render() {
     return (
       <div>
-        <Slides />
+        <ViewSlider />
       </div>
     )
   }
