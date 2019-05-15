@@ -1,0 +1,100 @@
+/* For the final demo tomorrow please keep in mind the following:
+
+- show us the final product in a live demo using the projector (including all features, code snippets, the repository)
+- tell us which technologies you used and for what
+- talk about challenges and failures, this will help us all to improve
+ */
+
+
+ *{
+    box-sizing: border-box
+  }
+
+.ViewSlide {
+    width: 100%;
+    height: 95%;
+    margin: 0 auto -50px;
+    flex: 2 0 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all ease 0.5s;
+    position: absolute;
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+    font-family: 'Quicksand', 'Jura', sans-serif;
+    color: black;  
+  }
+
+.ViewSlider{
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+    
+
+.ppt_container {
+  text-align: center;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.img_wrapper {
+  padding: 5px;
+}
+
+.img_wrapper > img {
+  height: 5vh;
+  margin: 5px;
+}
+
+._smBtn {
+  height: 50px;
+  width: 50px;
+}
+
+.tech_logos {
+  /* display: flex; */
+  /* justify-content: space-around;
+  align-items: center; */
+  /* align-content: space-between; */
+  text-align: center;
+  padding: 10px;
+}
+
+
+.my-modal-sm {
+  width: 60vw !important;
+  max-width: 80vw !important;
+} 
+
+.my-modal-lg {
+  width: 80vw !important;
+  max-width: 80vw !important;
+} 
+
+@media only screen and (max-width: 475px) {
+  .my-modal-sm {
+    padding-left: 80px;
+    width: 80vw !important;
+    max-width: 80vw !important;
+  }
+
+  .my-modal-lg {
+    padding-left: 30px;
+  }
+
+  .wf_img {
+    height: auto;
+    width: 70vw !important;
+  }
+}
