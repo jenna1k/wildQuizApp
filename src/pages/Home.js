@@ -18,7 +18,7 @@ export default class Home extends React.Component {
       progress: {},
       url: 'https://opentdb.com/api.php?amount=10&type=multiple',
       loading: true
-      };
+    };
 
     this.clickButton = this.clickButton.bind(this);
     this.nextButton = this.nextButton.bind(this);
@@ -33,11 +33,11 @@ export default class Home extends React.Component {
     if (key === 0 && !this.state.answered) {
       e.target.style.backgroundColor = '#fdcc3b';
       progress.push(true);
-      this.setState(state => ({ score: state.score + 10, answered: true, progress: progress}))
+      this.setState(state => ({ score: state.score + 10, answered: true, progress: progress }))
     } else if (!this.state.answered) {
       e.target.style.backgroundColor = '#6a737b';
       progress.push(false);
-      this.setState(state => ({ answered: true, progress: progress}))
+      this.setState(state => ({ answered: true, progress: progress }))
       // show right answer
       setTimeout(() => {
         for (let i = 0; i < ans.length; i++) {
@@ -56,7 +56,7 @@ export default class Home extends React.Component {
     }
     setTimeout(() => {
       if (this.state.currentQuiz !== this.state.quizList.length - 1) {
-        this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1}))
+        this.setState(state => ({ answered: false, currentQuiz: this.state.currentQuiz + 1 }))
       } else {
         this.setState(state => ({ answered: false, mode: 'result' }))
       }
@@ -125,11 +125,13 @@ export default class Home extends React.Component {
 
     if (this.state.loading && this.state.mode === 'quiz') {
       return (
-        <div className="text-center spinners">
-          <Spinner type="grow" />
-          <Spinner type="grow" />
-          <Spinner type="grow" />
-        </div>
+        <Container id="home">
+          <div className="text-center spinners">
+            <Spinner type="grow" />
+            <Spinner type="grow" />
+            <Spinner type="grow" />
+          </div>
+        </Container>
       )
     }
 

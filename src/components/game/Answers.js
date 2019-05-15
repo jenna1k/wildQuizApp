@@ -11,14 +11,11 @@ export default class Answers extends React.Component {
     return true;
   }
 
-
   render() {
     // DESTRUCTURING
-
     const { correct_answer, incorrect_answers, clickButton } = this.props;
 
     // FOR SHUFFLE BUTTONS
-
     let list = [];
 
     const answerList = [].concat(correct_answer).concat(incorrect_answers);
@@ -26,7 +23,7 @@ export default class Answers extends React.Component {
       if (i === 0) {  // correct_answer
         list.push(
           <Col lg="6" sm="12" key={i}>
-            <Button className="m-1 _btn" style={{backgroundColor: '#3cc3b2'}} size="lg" block id="ans" key={i} data-answer="correct"
+            <Button className="m-1 answer-btn" style={{ backgroundColor: '#3cc3b2' }} size="lg" block id="ans" key={i} data-answer="correct"
               onClick={(e) => {
                 e.preventDefault();
                 clickButton(e, i);
@@ -37,7 +34,7 @@ export default class Answers extends React.Component {
       } else {  // incorrect_answers
         list.push(
           <Col lg="6" sm="12" key={i}>
-            <Button className="m-1 _btn" style={{backgroundColor: '#3cc3b2'}} size="lg" block id="ans" key={i} data-answer="incorrect"
+            <Button className="m-1 answer-btn" style={{ backgroundColor: '#3cc3b2' }} size="lg" block id="ans" key={i} data-answer="incorrect"
               onClick={(e) => {
                 e.preventDefault();
                 clickButton(e, i);
@@ -47,7 +44,6 @@ export default class Answers extends React.Component {
         )
       }
     }
-
 
     const shuffle = (array) => {
       var currentIndex = array.length, temporaryValue, randomIndex;
@@ -72,7 +68,6 @@ export default class Answers extends React.Component {
       <Card className="border-0 bg-light">
         <Row>
           {shuffle(list)}
-          Correct: {correct_answer}
         </Row>
       </Card>
     )

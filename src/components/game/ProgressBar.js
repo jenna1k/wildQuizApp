@@ -9,7 +9,7 @@ const ProgressBar = ({ amount, progress }) => {
 
   for (var answer = 0; answer < progress.length; answer++) {
     progressBarElements.push(
-      <Progress key={answer} bar className={progress[answer] ? '_Progress_O' : '_Progress_X'} value={progressValue} />
+      <Progress key={answer} bar className={progress[answer] ? 'correct' : 'incorrect'} value={progressValue} />
     );
   }
   return (

@@ -24,7 +24,6 @@ export default class GameSettings extends React.Component {
 
     this.state = {
       gameSetting: 'default', // 'default', 'selectCategory', 'selectDifficulty', 'selectAmount'
-      type: 'multiple',
       category: 'any',
       difficulty: 'any',
       amount: 10,
@@ -79,7 +78,6 @@ export default class GameSettings extends React.Component {
       + (this.state.category === 'any' ? "" : "&category=" + this.state.category)
       + (this.state.difficulty === 'any' ? "" : "&difficulty=" + this.state.difficulty)
       + "&amount=" + (this.state.amount !== "" ? this.state.amount : "10");
-    //+ "&type=" + this.state.type; // to do: probably it's better to skip type, because num of questions are limited and there is no choise to check how many questions are available for multuple type game
 
     if (this.props.getURL != null) {
       this.props.getURL(url);

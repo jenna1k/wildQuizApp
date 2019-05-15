@@ -10,34 +10,15 @@ footer {
   justify-content: center;
   align-items: center;
   height: 50px;
+  background: #fd3b9c;
 }
 
 footer:hover {
   box-shadow: 0 0 2rem gray;
 }
 
-footer {
-  background: rgb(226, 119, 221);
-}
-
 footer a, footer a:hover {
   color: #cae91b;
-  ;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-footer:hover {
-  box-shadow: 0 0 2rem gray;
-}
-
-footer {
-  background: rgb(226, 119, 221);
-}
-
-footer a, footer a:hover {
-  color: #cae91b;
-  ;
   text-decoration: none;
   background-color: transparent;
 }
