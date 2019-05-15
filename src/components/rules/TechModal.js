@@ -1,6 +1,6 @@
 import React from 'react';
 import './ViewSlider.css';
-import { Container, Row, Col } from 'reactstrap';
+import { Row } from 'reactstrap';
 import { Button, Modal, ModalBody } from 'reactstrap';
 
 export default class TechModal extends React.Component {
@@ -28,55 +28,55 @@ export default class TechModal extends React.Component {
           <div className="tech_logos">
                           <Row>
                             <div className="img_wrapper">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/492px-Adobe_XD_CC_icon.svg.png"/>
+                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/492px-Adobe_XD_CC_icon.svg.png" alt="adobe xd"/>
                             </div>
                           </Row>
                           <hr/>
                           <Row>
                               <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/html-5.svg"/>
+                                <img src="https://cdn.svgporn.com/logos/html-5.svg" alt="html5"/>
                               </div>
                               <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/css-3.svg"/>
+                                <img src="https://cdn.svgporn.com/logos/css-3.svg" alt="css3"/>
                               </div>
                               <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/javascript.svg"/>
-                              </div>
-                          </Row>
-                          <hr/>
-                          <Row>
-                              <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/react.svg" />                          
+                                <img src="https://cdn.svgporn.com/logos/javascript.svg" alt="javascript"/>
                               </div>
                           </Row>
                           <hr/>
                           <Row>
                               <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/bootstrap.svg" />
-                              </div>
-                              <div className="img_wrapper">
-                                <img src="https://madewithnetwork.ams3.cdn.digitaloceanspaces.com//spatie-space-production/1901/1de62f0c-ee9f-11e5-95c0-c515fee8e918.png" />
+                                <img src="https://cdn.svgporn.com/logos/react.svg" alt="react"/>                          
                               </div>
                           </Row>
                           <hr/>
                           <Row>
                               <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/npm.svg"/>
+                                <img src="https://cdn.svgporn.com/logos/bootstrap.svg" alt="bootstrap"/>
+                              </div>
+                              <div className="img_wrapper">
+                                <img src="https://madewithnetwork.ams3.cdn.digitaloceanspaces.com//spatie-space-production/1901/1de62f0c-ee9f-11e5-95c0-c515fee8e918.png" alt="reactstrap"/>
                               </div>
                           </Row>
                           <hr/>
                           <Row>
                               <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/git.svg" />                            
-                              </div>
-                              <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/github-icon.svg" />
+                                <img src="https://cdn.svgporn.com/logos/npm.svg" alt="npm"/>
                               </div>
                           </Row>
                           <hr/>
                           <Row>
                               <div className="img_wrapper">
-                                <img src="https://cdn.svgporn.com/logos/netlify.svg" />
+                                <img src="https://cdn.svgporn.com/logos/git.svg" alt="git"/>                            
+                              </div>
+                              <div className="img_wrapper">
+                                <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="github"/>
+                              </div>
+                          </Row>
+                          <hr/>
+                          <Row>
+                              <div className="img_wrapper">
+                                <img src="https://cdn.svgporn.com/logos/netlify.svg" alt="netlify"/>
                               </div>
                           </Row>
                         </div>
