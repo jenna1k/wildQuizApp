@@ -1,11 +1,11 @@
 import React from 'react';
-import Carousel from '../components/rules/Carousel';
+import Slides from '../components/rules/Slides';
 
 export default class Rules extends React.Component {
   render() {
     return (
       <div>
-        <Carousel />
+        <Slides />
       </div>
     )
   }

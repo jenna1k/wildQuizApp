@@ -38,13 +38,13 @@ const Profiles = props => {
             </CardText>
             <CardText className="social">
               <a href="https://github.com/jenna1k">
-                <i class="fab fa-github" />
+                <i className="fab fa-github" />
               </a>
               <a href="https://github.com/jenna1k">
-                <i class="fab fa-github" />
+                <i className="fab fa-github" />
               </a>
               <a href="https://github.com/jenna1k">
-                <i class="fab fa-github" />
+                <i className="fab fa-github" />
               </a>
             </CardText>
           </CardBody>
@@ -70,13 +70,13 @@ const Profiles = props => {
             </CardText>
             <CardText className="social">
               <a href="https://github.com/jenna1k">
-                <i class="fab fa-github" />
-                <a href="https://github.com/jenna1k">
-                  <i class="fab fa-github" />
-                </a>
-                <a href="https://github.com/jenna1k">
-                  <i class="fab fa-github" />
-                </a>
+                <i className="fab fa-github" />
+              </a>
+              <a href="https://github.com/jenna1k">
+                <i className="fab fa-github" />
+              </a>
+              <a href="https://github.com/jenna1k">
+                <i className="fab fa-github" />
               </a>
             </CardText>
           </CardBody>
@@ -103,13 +103,13 @@ const Profiles = props => {
             </CardText>
             <CardText className="social">
               <a href="https://github.com/jenna1k">
-                <i class="fab fa-github" />
-                <a href="https://github.com/jenna1k">
-                  <i class="fab fa-twitter-square"></i>
-                </a>
-                <a href="https://github.com/jenna1k">
-                  <i class="fab fa-linkedin"></i>
-                </a>
+                <i className="fab fa-github" />
+              </a>
+              <a href="https://github.com/jenna1k">
+                <i className="fab fa-twitter-square"></i>
+              </a>
+              <a href="https://github.com/jenna1k">
+                <i className="fab fa-linkedin"></i>
               </a>
             </CardText>
           </CardBody>
