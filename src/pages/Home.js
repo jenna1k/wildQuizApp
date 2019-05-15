@@ -125,11 +125,13 @@ export default class Home extends React.Component {
 
     if (this.state.loading && this.state.mode === 'quiz') {
       return (
-        <div className="text-center spinners">
-          <Spinner type="grow" />
-          <Spinner type="grow" />
-          <Spinner type="grow" />
-        </div>
+        <Container id="home">
+          <div className="text-center spinners">
+            <Spinner type="grow" />
+            <Spinner type="grow" />
+            <Spinner type="grow" />
+          </div>
+        </Container>
       )
     }
 

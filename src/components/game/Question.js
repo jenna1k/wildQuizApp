@@ -4,7 +4,7 @@ import './GameBox.css';
 
 const Question = ({ question }) => {
   return (
-    <Alert color="info" className="_Question">
+    <Alert color="info" className="lert-heading d-flex justify-content-center question-container">
       <h2 className="alert-heading d-flex justify-content-center">
         {question}
       </h2>

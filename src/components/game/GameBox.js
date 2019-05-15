@@ -34,7 +34,7 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
   return (
     <div className="Jumbo-container p-5">
       <Row className="d-flex justify-content-center">
-        <Col className="box-container" lg="6" md="8" sm="8">
+        <Col className="box-container" xl="8" lg="8" md="10" sm="10" xs="12">
           <CardHeader tag="h3" className="card">
             <CardTitle className="text-white d-flex justify-content-between">
               <Button size="md" color="light" className="m-1 d-inline" active outline disabled><h1 className="num"> {currentQuiz + 1} </h1>/ {amount} </Button>

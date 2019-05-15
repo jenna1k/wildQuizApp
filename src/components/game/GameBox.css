@@ -1,6 +1,7 @@
 div.box-container {
   background-color: #3cc3b2;
   box-shadow: 5px 5px 0 #fff, 10px 10px 0 rgba(0,0,0,0.2);
+  margin-bottom: 50px;
 }
 
 button.answer-btn {
@@ -28,3 +29,5 @@ div.correct {
 div.incorrect {
   background-color: #6a737b !important;
 }
+
+
