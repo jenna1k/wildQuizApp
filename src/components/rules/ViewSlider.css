@@ -41,15 +41,60 @@
   text-align: center;
 }
 
-.tech_logos {
+.wrapper{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-content: center;
   align-items: center;
-  align-content: space-between;
+}
+
+.img_wrapper {
+  padding: 5px;
+}
+
+.img_wrapper > img {
+  height: 5vh;
+  margin: 5px;
+}
+
+._smBtn {
+  height: 50px;
+  width: 50px;
+}
+
+.tech_logos {
+  /* display: flex; */
+  /* justify-content: space-around;
+  align-items: center; */
+  /* align-content: space-between; */
+  text-align: center;
   padding: 10px;
 }
 
-.tech_logos > img {
-  height: 10vh;
-  padding: 5px;
+
+.my-modal-sm {
+  width: 60vw !important;
+  max-width: 80vw !important;
+} 
+
+.my-modal-lg {
+  width: 80vw !important;
+  max-width: 80vw !important;
+} 
+
+@media only screen and (max-width: 475px) {
+  .my-modal-sm {
+    padding-left: 80px;
+    width: 80vw !important;
+    max-width: 80vw !important;
+  }
+
+  .my-modal-lg {
+    padding-left: 30px;
+  }
+
+  .wf_img {
+    height: auto;
+    width: 70vw !important;
+  }
 }

@@ -1,6 +1,14 @@
 import React from 'react';
-import './Carousel.css';
+import './ViewSlider.css';
+import TechModal from './TechModal';
 import {StaggeredMotion, spring} from "react-motion";
+import { Container } from 'reactstrap';
+import { Button } from 'reactstrap';
+import WireFrameLg from './WireFrameLg';
+import WireFrameSm from './WireFrameSm';
+
+
+
 
 class ViewSlide extends React.Component {
     constructor(props) {
@@ -10,7 +18,8 @@ class ViewSlide extends React.Component {
         const isActive = this.props.active ? "active" : "";
         const classes = "ViewSlide " + isActive;
         return (
-          <div style={this.props.style}  
+          <div
+               style={this.props.style}  
                className={classes}
                onClick={this.props.onClick}>
             {this.props.children} 
@@ -19,11 +28,12 @@ class ViewSlide extends React.Component {
     }
 }
 
-class Carousel extends React.Component {
+class ViewSlider extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
+
             activeSlideIndex: 0,
             // Working on a better version where you just pass children with a triggers and x prop.
             slides: [
@@ -31,9 +41,9 @@ class Carousel extends React.Component {
                     triggers: 1,
                     x: 0,
                     content: (
-                      <div className="ppt_container">
-                        <h1>How we built this</h1>
-                      </div>
+                      <Container className="ppt_container">
+                        <h1>How we built this App</h1>
+                      </Container>
                         
                     )
                 },
@@ -41,35 +51,37 @@ class Carousel extends React.Component {
                     triggers: 2,
                     x: 100,
                     content: (
-                      <div className="ppt_container">
+                      <Container className="ppt_container">
                         <h1>What technologies we used</h1>
-                        <div className="tech_logos">
-                          <img src="https://cdn.svgporn.com/logos/html-5.svg"/>
-                          <img src="https://cdn.svgporn.com/logos/css-3.svg"/>
-                          <img src="https://cdn.svgporn.com/logos/javascript.svg"/>
-                          <img src="https://cdn.svgporn.com/logos/react.svg" />                          
-                          <img src="https://cdn.svgporn.com/logos/bootstrap.svg" />
-                          <img src="https://madewithnetwork.ams3.cdn.digitaloceanspaces.com//spatie-space-production/1901/1de62f0c-ee9f-11e5-95c0-c515fee8e918.png" />
-                          <img src="https://cdn.svgporn.com/logos/npm.svg"/>
-                          <img src="https://cdn.svgporn.com/logos/git.svg" />                            
-                          <img src="https://cdn.svgporn.com/logos/github-icon.svg" />
-                          <img src="https://cdn.svgporn.com/logos/netlify.svg" />
-                        </div>
-                      </div>
+                        <TechModal />
+                      </Container>
                     )
                 },
                  {
                     triggers: 3,
                     x: 200,
                     content: (
-                        <h1>WireFrame</h1>
+                      <Container className="ppt_container">
+                        <h1>WireFrame for Desktop & Tablet</h1>
+                        <WireFrameLg />
+                      </Container>
                     )
                 },
+                {
+                  triggers: 4,
+                  x: 200,
+                  content: (
+                    <Container className="ppt_container">
+                      <h1>WireFrame for Mobile</h1>
+                      <WireFrameSm />
+                  </Container>
+                  )
+              },
                 {
                     triggers: 0,
                     x: 300,
                     content: (
-                        <h1>Let's Go back to the start</h1>
+                        <h1>... and with lots of <i class="fas fa-heart"></i> & <i class="fas fa-coffee"></i></h1>
                     )
                 },
                 {
@@ -81,10 +93,19 @@ class Carousel extends React.Component {
                 },
             ]
         }
+
+        // this.toggle = this.toggle.bind(this);
     }
     setActiveSlide(slideIndex) {
        this.setState({activeSlideIndex: slideIndex});
     }
+
+    // toggle() {
+    //   this.setState(prevState => ({
+    //     modal: !prevState.modal
+    //   }));
+    // }
+
     render() {
         const slides = this.state.slides;
         return (
@@ -102,11 +123,16 @@ class Carousel extends React.Component {
                               slide = this.state.slides[i];
                          return (
                         <ViewSlide
+                            // modal={this.state.modal}
                             style={{left: `${style.x}%`}}
                             active={active}
                             key={i}
-                            onClick={this.setActiveSlide.bind(this, slide.triggers)}>
-                                 <h1>{slide.content}</h1>
+                            // onClick={this.setActiveSlide.bind(this, slide.triggers)}
+                            >
+                              <Container className="ppt_container">
+                                <h1>{slide.content}</h1>
+                                <Button className="circle-button _smBtn" onClick={this.setActiveSlide.bind(this, slide.triggers)}> <i class="fas fa-angle-double-right"></i> </Button>
+                              </Container>
                         </ViewSlide>
                         )}
                       )}
@@ -118,5 +144,5 @@ class Carousel extends React.Component {
 }
 
 
-export default Carousel;
+export default ViewSlider;
 
