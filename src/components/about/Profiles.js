@@ -28,7 +28,7 @@ const Profiles = props => {
               <CardTitle>Dajung Kim</CardTitle>
               <CardSubtitle><em>former accountant</em></CardSubtitle>
               <CardText className="description">
-
+                I'm Jenna from South Korea. Traveled Singapore, Australia and now I'm here in Germany. I like to travel & codig!
               </CardText>
               <CardText className="social">
                 <a href="https://github.com/jenna1k" target="_blank" rel="noopener noreferrer" >
