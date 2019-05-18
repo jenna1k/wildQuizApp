@@ -5,7 +5,6 @@ import { StaggeredMotion } from "react-motion";
 import { Container } from 'reactstrap';
 import { Button } from 'reactstrap';
 import WireFrameLg from './WireFrameLg';
-import WireFrameSm from './WireFrameSm';
 
 class ViewSlide extends React.Component {
   render() {
@@ -56,7 +55,7 @@ class ViewSlider extends React.Component {
           x: 200,
           content: (
             <Container className="ppt_container">
-              <h1>WireFrame for Desktop & Tablet</h1>
+              <h1>WireFrame</h1>
               <WireFrameLg />
             </Container>
           )
@@ -66,8 +65,15 @@ class ViewSlider extends React.Component {
           x: 300,
           content: (
             <Container className="ppt_container">
-              <h1>WireFrame for Mobile</h1>
-              <WireFrameSm />
+              <div className="code_editor">
+                <code contentEditable="true">
+                <p>while(project)&#x7B;</p>
+                  <p>coffee();</p>
+                  <p>code();</p>
+                  <p>repeat();</p>
+                  <p>&#x7D;</p>
+                </code>
+              </div>
             </Container>
           )
         },

@@ -35,6 +35,7 @@
 
 .ppt_container {
 text-align: center;
+margin: 0 auto;
 }
 
 .wrapper{
@@ -121,4 +122,56 @@ max-width: 80vw !important;
   height: 60vh;
 }
 
+code p {
+  font-size: 4vw;
+}
+
+}
+
+
+/* .code_editor */
+
+/* body {
+  background: #e6ecee;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+} */
+.code_editor {
+  max-width: 50rem;
+  background: #263238;
+  color: #eff;
+  padding: 1rem 3rem;
+  margin: 1rem;
+  position: relative;
+  border-radius: 0.25rem;
+  counter-reset: step;
+  counter-increment: step 0;
+  transition: background 0.3s;
+  outline: none;
+}
+code:focus {
+  background: #2e3d44;
+  outline: none;
+}
+code p {
+  position: relative;
+  margin: 0.2rem;
+  font-family: monospace;
+  display: block;
+  white-space: pre;
+  outline: none;
+  text-align: start;
+}
+code p::before {
+  position: absolute;
+  top: 0;
+  left: -1.75rem;
+  color: #50646d;
+  user-select: none;
+  content: counter(step);
+  counter-increment: step;
+  outline: none;
 }
