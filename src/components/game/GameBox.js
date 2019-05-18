@@ -45,8 +45,7 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
           <CardBody className="bg-light">
             <CardText>
               <Button outline color="info" className="m-1 d-inline _category" disabled>{quiz.category}</Button>
-              <Button outline color="info" className="m-1 d-inline 
-              _difficulty" disabled>Difficulty : {quiz.difficulty}</Button>
+              <Button outline color="info" className="m-1 d-inline _difficulty" disabled>Difficulty : {quiz.difficulty}</Button>
             </CardText>
             <Question question={renderHTML(quiz.question)} />
             <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers} clickButton={clickButton} answered={answered} />

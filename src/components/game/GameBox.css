@@ -41,7 +41,7 @@ div.incorrect {
 @media screen and (max-width: 500px) {
   
   
-  h1, h2 {
+  .num, ._question {
     font-size: 5VW !important;
   }
   ._difficulty, ._category, .answer-btn {
