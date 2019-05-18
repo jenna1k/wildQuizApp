@@ -61,27 +61,20 @@ class ViewSlider extends React.Component {
           )
         },
         {
-          triggers: 4,
+          triggers: 0,
           x: 300,
           content: (
-            <Container className="ppt_container">
+            <Container className="ppt_container_code">
               <div className="code_editor">
                 <code contentEditable="true">
                 <p>while(project)&#x7B;</p>
-                  <p>coffee();</p>
-                  <p>code();</p>
-                  <p>repeat();</p>
+                  <p>  coffee();</p>
+                  <p>  code();</p>
+                  <p>  repeat();</p>
                   <p>&#x7D;</p>
                 </code>
               </div>
             </Container>
-          )
-        },
-        {
-          triggers: 0,
-          x: 400,
-          content: (
-            <h1>... and with lots of <i className="fas fa-heart"></i> & <i className="fas fa-coffee"></i></h1>
           )
         },
         {

@@ -131,14 +131,11 @@ code p {
 
 /* .code_editor */
 
-/* body {
-  background: #e6ecee;
+  .ppt_container_code {
   display: flex;
-  width: 100vw;
-  height: 100vh;
   align-items: center;
   justify-content: center;
-} */
+} 
 .code_editor {
   max-width: 50rem;
   background: #263238;
