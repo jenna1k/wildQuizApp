@@ -63,7 +63,7 @@ class ViewSlider extends React.Component {
         },
         {
           triggers: 4,
-          x: 200,
+          x: 300,
           content: (
             <Container className="ppt_container">
               <h1>WireFrame for Mobile</h1>
@@ -73,14 +73,14 @@ class ViewSlider extends React.Component {
         },
         {
           triggers: 0,
-          x: 300,
+          x: 400,
           content: (
             <h1>... and with lots of <i className="fas fa-heart"></i> & <i className="fas fa-coffee"></i></h1>
           )
         },
         {
           triggers: 0,
-          x: 400,
+          x: 500,
           content: (
             <h1>Secret slide!</h1>
           )

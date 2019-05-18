@@ -34,7 +34,7 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
   return (
     <div className="Jumbo-container p-5">
       <Row className="d-flex justify-content-center">
-        <Col className="box-container" xl="8" lg="8" md="10" sm="10" xs="12">
+        <Col className="box-container" xl="8" lg="8" md="10" sm="12" xs="12">
           <CardHeader tag="h3" className="card">
             <CardTitle className="text-white d-flex justify-content-between">
               <Button size="md" color="light" className="m-1 d-inline" active outline disabled><h1 className="num"> {currentQuiz + 1} </h1>/ {amount} </Button>
@@ -44,8 +44,9 @@ const GameBox = ({ quiz, score, clickButton, answered, nextButton, amount, progr
           <ProgressBar amount={amount} progress={progress} />
           <CardBody className="bg-light">
             <CardText>
-              <Button outline color="info" className="m-1 d-inline" disabled>{quiz.category}</Button>
-              <Button outline color="info" className="m-1 d-inline" disabled>Difficulty : {quiz.difficulty}</Button>
+              <Button outline color="info" className="m-1 d-inline _category" disabled>{quiz.category}</Button>
+              <Button outline color="info" className="m-1 d-inline 
+              _difficulty" disabled>Difficulty : {quiz.difficulty}</Button>
             </CardText>
             <Question question={renderHTML(quiz.question)} />
             <Answers correct_answer={quiz.correct_answer} incorrect_answers={quiz.incorrect_answers} clickButton={clickButton} answered={answered} />
