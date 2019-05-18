@@ -46,11 +46,13 @@ align-items: center;
 
 .img_wrapper {
 padding: 5px;
+margin: 0 auto;
+text-align: center;
 }
 
 .img_wrapper > img {
 height: 5vh;
-margin: 5px;
+margin: 8px;
 }
 
 ._smBtn {
@@ -74,6 +76,10 @@ width: 80vw !important;
 max-width: 80vw !important;
 } 
 
+.modal_wrapper {
+  width: 80vw !important;
+  max-width: 80vw !important;
+}
 
 
 .wf_img {
@@ -81,12 +87,24 @@ max-width: 80vw !important;
   object-fit: fill;
 }
 
+._wireframeBig {
+  width: 80vw;
+  height: 80vh;
+}
+
+._tech {
+  display: block;
+  padding: 0px;
+  margin: 0 auto;
+  font-family: 'Quicksand', 'Jura', sans-serif;
+  text-align: center;
+}
 
 @media only screen and (max-width: 475px) {
 .my-modal-sm {
-  padding-left: 80px;
-  width: 80vw !important;
-  max-width: 80vw !important;
+  padding-left: 100px;
+  width: 70vw !important;
+  max-width: 70vw !important;
 }
 
 .my-modal-lg {
@@ -97,4 +115,10 @@ max-width: 80vw !important;
   height: auto;
   width: 70vw !important;
 }
+
+._wireframeBig {
+  width: 90vw;
+  height: 60vh;
+}
+
 }
