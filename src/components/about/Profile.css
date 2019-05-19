@@ -1,9 +1,9 @@
-div#profile {
+div.about-page {
   max-width: 100% !important;
-  background: -webkit-linear-gradient(110deg, #fdcd3b 50%, #ffed4b 60%);
-  background: -o-linear-gradient(110deg, #fdcd3b 50%, #ffed4b 60%);
-  background: -moz-linear-gradient(110deg, hsl(45, 98%, 61%) 50%, #ffed4b 60%);
-  background: linear-gradient(110deg, #fdcd3b 50%, #ffed4b 60%);  
+  background: -webkit-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: -o-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: -moz-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
   height: auto;
   min-height: 100%;
 }
@@ -21,11 +21,13 @@ div.row#profiles {
   margin: 10px;
   height: 95%;
   border-radius: 20px;
+  -webkit-box-shadow: 0px 9px 14px 3px rgba(0,0,0,0.56); 
+  box-shadow: 0px 9px 14px 3px rgba(0,0,0,0.56);  
 }
 
 #profile img {
   width: 50%;
-}
+}  
 
 p.description.card-text {
   text-align: justify;
@@ -42,9 +44,16 @@ p.social.card-text {
   font-size: 2em;
 }
 
+/* div.social {
+  bottom: 0;
+  position: absolute;  
+} */
+
 #profile .card-title {
   text-align: center;
   font-size: 24px;
+  margin: 10px;
+  padding: 0;
 }
 
 #profile .card-subtitle {

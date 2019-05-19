@@ -11,6 +11,8 @@ footer {
   align-items: center;
   height: 50px;
   background: #fd3b9c;
+  font-family: 'Quicksand', 'Jura', sans-serif;
+  font-size: 1.1rem;
 }
 
 footer:hover {
