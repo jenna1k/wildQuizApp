@@ -5,7 +5,6 @@ import { StaggeredMotion } from "react-motion";
 import { Container } from 'reactstrap';
 import { Button } from 'reactstrap';
 import WireFrameLg from './WireFrameLg';
-import WireFrameSm from './WireFrameSm';
 
 class ViewSlide extends React.Component {
   render() {
@@ -56,18 +55,8 @@ class ViewSlider extends React.Component {
           x: 200,
           content: (
             <Container className="ppt_container">
-              <h1>WireFrame for Desktop & Tablet</h1>
+              <h1>WireFrame</h1>
               <WireFrameLg />
-            </Container>
-          )
-        },
-        {
-          triggers: 4,
-          x: 200,
-          content: (
-            <Container className="ppt_container">
-              <h1>WireFrame for Mobile</h1>
-              <WireFrameSm />
             </Container>
           )
         },
@@ -75,12 +64,22 @@ class ViewSlider extends React.Component {
           triggers: 0,
           x: 300,
           content: (
-            <h1>... and with lots of <i className="fas fa-heart"></i> & <i className="fas fa-coffee"></i></h1>
+            <Container className="ppt_container_code">
+              <div className="code_editor">
+                <code contentEditable="true">
+                <p>while(project)&#x7B;</p>
+                  <p>  coffee();</p>
+                  <p>  code();</p>
+                  <p>  repeat();</p>
+                  <p>&#x7D;</p>
+                </code>
+              </div>
+            </Container>
           )
         },
         {
           triggers: 0,
-          x: 400,
+          x: 500,
           content: (
             <h1>Secret slide!</h1>
           )
