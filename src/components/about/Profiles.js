@@ -27,9 +27,11 @@ const Profiles = props => {
             <CardBody>
               <CardTitle>Dajung Kim</CardTitle>
               <CardSubtitle><em>former accountant</em></CardSubtitle>
-              <CardText className="description">
-                I'm Jenna from South Korea. Traveled Singapore, Australia and now I'm here in Germany. I like to travel & codig!
-              </CardText>
+              <div className="description">
+                <CardText className="description">
+                  I'm Jenna from South Korea. Traveled Singapore, Australia and now I'm here in Germany. I like to travel & coding!
+                </CardText>
+              </div>
               <CardText className="social">
                 <a href="https://github.com/jenna1k" target="_blank" rel="noopener noreferrer" >
                   <i className="fab fa-github" />
@@ -56,9 +58,11 @@ const Profiles = props => {
             <CardBody>
               <CardTitle>Anastasiya Aliashkevich</CardTitle>
               <CardSubtitle><em>former QA</em></CardSubtitle>
-              <CardText className="description">
-                My name is Anastasiya and I'm from Belarus - a country with economy and national idea being potato. I like to solve puzzles, code stuff and also I love computer games.
-              </CardText>
+              <div className="description">
+                <CardText className="description">
+                  My name is Anastasiya and I'm from Belarus - a country with economy and national idea being potato. I like to solve puzzles, code stuff and also I love computer games.
+                </CardText>
+              </div>
               <CardText className="social">
                 <a href="https://github.com/aliashkevich" target="_blank" rel="noopener noreferrer" >
                   <i className="fab fa-github" />
@@ -85,9 +89,11 @@ const Profiles = props => {
             <CardBody>
               <CardTitle>Bernadetta Nycz</CardTitle>
               <CardSubtitle><em>former stylist</em></CardSubtitle>
-              <CardText className="description">
-                I’m Bernadetta, currently on the journey to translate my love for art, fashion and tech into digital reality. I enjoy sun, skateboarding and expresso.
-              </CardText>
+              <div className="description">
+                <CardText className="description">
+                  I’m Bernadetta, currently on the journey to translate my love for art, fashion and tech into digital reality. I enjoy sun, skateboarding and expresso.
+                </CardText>
+              </div>
               <CardText className="social">
                 <a href="https://github.com/Hiiiij" target="_blank" rel="noopener noreferrer" >
                   <i className="fab fa-github" />

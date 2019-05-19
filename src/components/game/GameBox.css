@@ -6,6 +6,20 @@ div.box-container {
 
 button.answer-btn {
   border: 0px !important;
+  height: 100%;
+  outline: none;
+  margin: 0;
+  padding: 10px;
+}
+
+div.answer {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  padding-right: 20px;
+}
+
+div.progress {
+  border-radius: 0px;
 }
 
 h1.num {

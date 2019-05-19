@@ -8,7 +8,6 @@ div#profile {
   min-height: 100%;
 }
 
-
 div.row#profiles {
   padding-top: 80px;
   padding-bottom: 40px;
@@ -45,7 +44,7 @@ p.social.card-text {
 
 #profile .card-title {
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 #profile .card-subtitle {
