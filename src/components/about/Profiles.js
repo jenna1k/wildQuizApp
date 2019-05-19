@@ -25,7 +25,7 @@ function Profiles() {
               className="rounded-circle"
             />
             <CardBody>
-              <CardTitle><p>Dajung Kim</p></CardTitle>
+              <CardTitle>Dajung Kim</CardTitle>
               <CardSubtitle><em>former accountant</em></CardSubtitle>
               <div className="card-content">
                 <div className="description">
