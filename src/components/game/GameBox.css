@@ -30,4 +30,21 @@ div.incorrect {
   background-color: #6a737b !important;
 }
 
+/* 
+@media screen and (min-width: 601px) {
+  .alert-heading {
+    font-size: 80px;
+  }
+} */
 
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 500px) {
+  
+  
+  .num, ._question {
+    font-size: 5VW !important;
+  }
+  ._difficulty, ._category, .answer-btn {
+    font-size: 3VW !important;
+  }
+}

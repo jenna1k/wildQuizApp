@@ -25,14 +25,7 @@ export default class WireFrameLg extends React.Component {
         <Modal className="my-modal-lg" isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody onClick={this.toggle} className="modal_wrapper">
             <div className="container d-flex justify-content-center">
-                <div className="row">
-                    <div className="col-lg-2 col-md-6 col-sm-12 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJHTNMA73/screen_shot_2019-05-15_at_15.05.18.png" alt="wireframe for laptop and tablet"/></div>
-                    <div className="col-lg-2 col-md-6 col-sm-12 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJCQNK4JF/screen_shot_2019-05-15_at_15.05.29.png" alt="wireframe for laptop and tablet"/></div>
-                    <div className="col-lg-2 col-md-6 col-sm-12 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJHTPL2CR/screen_shot_2019-05-15_at_15.05.43.png" alt="wireframe for laptop and tablet"/></div>
-                    <div className="col-lg-2 col-md-6 col-sm-12 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJPNDP77E/screen_shot_2019-05-15_at_15.06.02.png" alt="wireframe for laptop and tablet"/></div>
-                    <div className="col-lg-2 col-md-6 col-sm-12 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJHTQQ389/screen_shot_2019-05-15_at_15.06.10.png" alt="wireframe for laptop and tablet"/></div>
-                    <div className="col-lg-2 col-md-6 col-sm-12 m-2"><img className="wf_img" src="https://files.slack.com/files-pri/T6SG2QGG2-FJCQQ99GB/screen_shot_2019-05-15_at_15.06.28.png" alt="wireframe for laptop and tablet"/></div>
-                </div>
+              <img className="_wireframeBig" src="https://i.imgur.com/8Ziewbl.png" alt="wireframe" />
             </div>
           </ModalBody>
         </Modal>
