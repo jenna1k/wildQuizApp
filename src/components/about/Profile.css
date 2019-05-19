@@ -1,5 +1,4 @@
 div.about-page {
-  max-width: 100% !important;
   background: -webkit-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
   background: -o-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
   background: -moz-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
@@ -8,21 +7,28 @@ div.about-page {
   min-height: 100%;
 }
 
+div#profile {
+  max-width: 100%;
+}
+
 div.row#profiles {
-  padding-top: 80px;
-  padding-bottom: 40px;
+  padding: 80px 30px 20px 30px;
 }
 
 #profile .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
   margin: 10px;
+  padding: 30px 10px 10px 10px;
   height: 95%;
-  border-radius: 20px;
+  border-radius: 30px;
   -webkit-box-shadow: 0px 9px 14px 3px rgba(0,0,0,0.56); 
   box-shadow: 0px 9px 14px 3px rgba(0,0,0,0.56);  
+}
+
+div.card-body {
+  padding-top: 0;
 }
 
 #profile img {
@@ -33,21 +39,28 @@ p.description.card-text {
   text-align: justify;
 }
 
+div.social {
+  font-size: 2em;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+div.social a {
+  padding: 20px;
+}
+
+div.card-content {    
+  display: flex;
+  justify-content: center;
+  padding-bottom: 35px;
+}
+
 #profile .card-deck .fa-github {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
-p.social.card-text {
-  display: flex;
-  justify-content: space-around;
-  font-size: 2em;
-}
-
-/* div.social {
-  bottom: 0;
-  position: absolute;  
-} */
 
 #profile .card-title {
   text-align: center;
