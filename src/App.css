@@ -11,3 +11,7 @@ html, body, div#root{
   height: 100%
 }
 
+div.text-justyfy {
+  text-align: justify;
+}
+

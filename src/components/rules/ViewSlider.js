@@ -1,7 +1,7 @@
 import React from 'react';
 import './ViewSlider.css';
 import TechModal from './TechModal';
-import { StaggeredMotion } from "react-motion";
+import { StaggeredMotion } from 'react-motion';
 import { Container } from 'reactstrap';
 import { Button } from 'reactstrap';
 import WireFrameLg from './WireFrameLg';
@@ -67,7 +67,7 @@ class ViewSlider extends React.Component {
             <Container className="ppt_container_code">
               <div className="code_editor">
                 <code contentEditable="true">
-                <p>while(project)&#x7B;</p>
+                  <p>while(project)&#x7B;</p>
                   <p>  coffee();</p>
                   <p>  code();</p>
                   <p>  repeat();</p>
@@ -137,6 +137,4 @@ class ViewSlider extends React.Component {
   }
 }
 
-
 export default ViewSlider;
-
